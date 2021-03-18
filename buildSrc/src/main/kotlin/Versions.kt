@@ -13,6 +13,9 @@ object Versions {
     // database
     const val room = "2.2.6"
 
+    // dependency injection
+    const val koin = "2.2.2"
+
     // material
     const val material = "1.3.0"
 

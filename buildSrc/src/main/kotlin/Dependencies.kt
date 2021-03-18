@@ -18,6 +18,9 @@ object Dependencies {
     const val roomKapt = "androidx.room:room-compiler:${Versions.room}"
     const val roomKtx = "androidx.room:room-ktx:${Versions.room}"
 
+    // dependency injection
+    const val koin = "org.koin:koin-android-viewmodel:${Versions.koin}"
+
     // material
     const val material = "com.google.android.material:material:${Versions.material}"
 
