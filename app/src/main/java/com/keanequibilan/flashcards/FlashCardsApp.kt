@@ -11,7 +11,7 @@ class FlashCardsApp : Application() {
         super.onCreate()
         startKoin {
             androidContext(this@FlashCardsApp)
-            DI_MODULES
+            modules(DI_MODULES)
         }
     }
 }
