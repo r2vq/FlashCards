@@ -27,7 +27,6 @@ object DatabaseBuildModule : BuildModule() {
         ktx,
         appcompat,
         koin,
-        material,
         room,
         roomKtx
     )

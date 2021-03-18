@@ -3,6 +3,7 @@ import Dependencies.constraint
 import Dependencies.espressoCore
 import Dependencies.junit
 import Dependencies.junitExt
+import Dependencies.koin
 import Dependencies.ktx
 import Dependencies.material
 import Dependencies.stdLib
@@ -16,10 +17,12 @@ object AppBuildModule : BuildModule() {
     )
 
     override val localModules: List<String> = listOf(
+        di
     )
 
     override val implementations = listOf(
         stdLib,
+        koin,
         ktx,
         appcompat,
         material,

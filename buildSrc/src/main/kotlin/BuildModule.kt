@@ -11,6 +11,7 @@ abstract class BuildModule {
     abstract val androidTestImplementations: List<String>
 
     protected val database = ":database"
+    protected val di = ":di"
     protected val repository = ":repository"
 
     val compileSdk = 30

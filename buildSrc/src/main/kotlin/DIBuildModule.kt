@@ -4,11 +4,9 @@ import Dependencies.junit
 import Dependencies.junitExt
 import Dependencies.koin
 import Dependencies.ktx
-import Dependencies.room
-import Dependencies.roomKtx
 import Dependencies.stdLib
 
-object RepositoryBuildModule : BuildModule() {
+object DIBuildModule : BuildModule() {
     override val plugins = listOf(
         "com.android.library"
     )
@@ -17,16 +15,15 @@ object RepositoryBuildModule : BuildModule() {
     )
 
     override val localModules = listOf(
-        database
+        database,
+        repository
     )
 
     override val implementations = listOf(
         stdLib,
         ktx,
         appcompat,
-        koin,
-        room,
-        roomKtx
+        koin
     )
 
     override val kapts = listOf<String>(

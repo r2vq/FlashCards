@@ -4,7 +4,7 @@ import androidx.room.Room
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
-val DATABASE_MODULES = listOf(module {
+val DATABASE_MODULE = module {
     single {
         Room
             .databaseBuilder(
@@ -14,4 +14,4 @@ val DATABASE_MODULES = listOf(module {
             )
             .build()
     }
-})
+}
