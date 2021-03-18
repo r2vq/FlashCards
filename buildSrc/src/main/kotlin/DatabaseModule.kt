@@ -2,6 +2,7 @@ import Dependencies.appcompat
 import Dependencies.espressoCore
 import Dependencies.junit
 import Dependencies.junitExt
+import Dependencies.koin
 import Dependencies.ktx
 import Dependencies.material
 import Dependencies.room
@@ -22,6 +23,7 @@ object DatabaseModule : Module() {
         stdLib,
         ktx,
         appcompat,
+        koin,
         material,
         room,
         roomKtx
