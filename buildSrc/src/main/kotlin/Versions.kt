@@ -12,6 +12,9 @@ object Versions {
     const val arch = "2.1.0"
     const val lifecycle = "2.3.0"
 
+    // constraint layout
+    const val constraintLayout = "2.0.4"
+
     // database
     const val room = "2.2.6"
 
@@ -21,8 +24,8 @@ object Versions {
     // material
     const val material = "1.3.0"
 
-    // constraint layout
-    const val constraintLayout = "2.0.4"
+    // paging
+    const val paging = "2.1.2"
 
     // testing
     const val junit = "4.13.2"

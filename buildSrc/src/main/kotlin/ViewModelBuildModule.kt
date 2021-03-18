@@ -7,6 +7,9 @@ import Dependencies.ktx
 import Dependencies.lifecycleCompiler
 import Dependencies.liveData
 import Dependencies.liveDataTesting
+import Dependencies.paging
+import Dependencies.pagingKtx
+import Dependencies.pagingTesting
 import Dependencies.saveState
 import Dependencies.stdLib
 import Dependencies.viewModel
@@ -30,6 +33,8 @@ object ViewModelBuildModule : BuildModule() {
         appcompat,
         koin,
         liveData,
+        paging,
+        pagingKtx,
         saveState,
         viewModel
     )
@@ -40,7 +45,8 @@ object ViewModelBuildModule : BuildModule() {
 
     override val testImplementations = listOf(
         junit,
-        liveDataTesting
+        liveDataTesting,
+        pagingTesting
     )
 
     override val androidTestImplementations = listOf(

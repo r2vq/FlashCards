@@ -29,6 +29,11 @@ object Dependencies {
     // material
     const val material = "com.google.android.material:material:${Versions.material}"
 
+    // paging
+    const val paging = "androidx.paging:paging-runtime:${Versions.paging}"
+    const val pagingKtx = "androidx.paging:paging-runtime-ktx:${Versions.paging}"
+    const val pagingTesting = "androidx.paging:paging-common:${Versions.paging}"
+
     // testing
     const val junit = "junit:junit:${Versions.junit}"
     const val junitExt = "androidx.test.ext:junit:${Versions.junitExt}"

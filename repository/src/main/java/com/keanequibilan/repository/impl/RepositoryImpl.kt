@@ -1,5 +1,6 @@
 package com.keanequibilan.repository.impl
 
+import androidx.paging.DataSource
 import com.keanequibilan.database.FlashCardDatabase
 import com.keanequibilan.database.entity.FlashCardEntity
 import com.keanequibilan.repository.Repository
@@ -18,6 +19,11 @@ internal class RepositoryImpl(
         .flashCardDao()
         .getFlashCard(id)
         .let(FlashCardEntity?::toLocalFlashCard)
+
+    override fun getCardsPaged(): DataSource.Factory<Int, LocalFlashCard> = db
+        .flashCardDao()
+        .getFlashCardPaged()
+        .map(FlashCardEntity?::toLocalFlashCard)
 
     override suspend fun createCard(name: String) = db
         .flashCardDao()

@@ -1,5 +1,6 @@
 package com.keanequibilan.database.dao
 
+import androidx.paging.DataSource
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
@@ -12,6 +13,9 @@ interface FlashCardDao {
 
     @Query("SELECT * FROM FlashCardEntity WHERE `id` = :id")
     suspend fun getFlashCard(id: Int): FlashCardEntity?
+
+    @Query("SELECT * FROM FlashCardEntity")
+    fun getFlashCardPaged(): DataSource.Factory<Int, FlashCardEntity>
 
     @Insert
     suspend fun insertAll(vararg card: FlashCardEntity)
