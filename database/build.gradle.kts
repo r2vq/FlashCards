@@ -38,6 +38,7 @@ android {
 dependencies {
     DatabaseModule.run {
         implementations.forEach { lib -> add("implementation", lib) }
+        kapts.forEach { lib -> add("kapt", lib) }
         testImplementations.forEach { lib -> add("testImplementation", lib) }
         androidTestImplementations.forEach { lib -> add("androidTestImplementation", lib) }
     }

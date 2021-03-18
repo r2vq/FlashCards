@@ -10,6 +10,9 @@ object Versions {
     // android
     const val appcompat = "1.2.0"
 
+    // database
+    const val room = "2.2.6"
+
     // material
     const val material = "1.3.0"
 

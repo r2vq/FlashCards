@@ -23,6 +23,9 @@ object AppModule : Module() {
         constraint
     )
 
+    override val kapts: List<String> = listOf(
+    )
+
     override val testImplementations = listOf(
         junit
     )

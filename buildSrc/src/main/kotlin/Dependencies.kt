@@ -10,11 +10,16 @@ object Dependencies {
     // android
     const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
 
-    // material
-    const val material = "com.google.android.material:material:${Versions.material}"
-
     // constraint
     const val constraint = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+
+    // database
+    const val room = "androidx.room:room-runtime:${Versions.room}"
+    const val roomKapt = "androidx.room:room-compiler:${Versions.room}"
+    const val roomKtx = "androidx.room:room-ktx:${Versions.room}"
+
+    // material
+    const val material = "com.google.android.material:material:${Versions.material}"
 
     // testing
     const val junit = "junit:junit:${Versions.junit}"

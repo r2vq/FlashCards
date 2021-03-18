@@ -4,6 +4,9 @@ import Dependencies.junit
 import Dependencies.junitExt
 import Dependencies.ktx
 import Dependencies.material
+import Dependencies.room
+import Dependencies.roomKapt
+import Dependencies.roomKtx
 import Dependencies.stdLib
 
 object DatabaseModule : Module() {
@@ -11,14 +14,21 @@ object DatabaseModule : Module() {
         "com.android.library"
     )
     override val kotlinPlugins = listOf(
-        "android"
+        "android",
+        "kapt"
     )
 
     override val implementations = listOf(
         stdLib,
         ktx,
         appcompat,
-        material
+        material,
+        room,
+        roomKtx
+    )
+
+    override val kapts = listOf(
+        roomKapt
     )
 
     override val testImplementations = listOf(

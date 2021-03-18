@@ -5,6 +5,7 @@ abstract class Module {
     abstract val kotlinPlugins: List<String>
 
     abstract val implementations: List<String>
+    abstract val kapts: List<String>
     abstract val testImplementations: List<String>
     abstract val androidTestImplementations: List<String>
 
