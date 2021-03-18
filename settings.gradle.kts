@@ -1,4 +1,5 @@
 include(
-    ":app"
+    ":app",
+    ":database"
 )
 rootProject.name = "FlashCards"

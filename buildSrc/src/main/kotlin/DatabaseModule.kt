@@ -1,5 +1,4 @@
 import Dependencies.appcompat
-import Dependencies.constraint
 import Dependencies.espressoCore
 import Dependencies.junit
 import Dependencies.junitExt
@@ -7,9 +6,9 @@ import Dependencies.ktx
 import Dependencies.material
 import Dependencies.stdLib
 
-object AppModule : Module() {
+object DatabaseModule : Module() {
     override val plugins = listOf(
-        "com.android.application"
+        "com.android.library"
     )
     override val kotlinPlugins = listOf(
         "android"
@@ -19,8 +18,7 @@ object AppModule : Module() {
         stdLib,
         ktx,
         appcompat,
-        material,
-        constraint
+        material
     )
 
     override val testImplementations = listOf(
