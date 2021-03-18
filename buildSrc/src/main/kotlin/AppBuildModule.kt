@@ -7,12 +7,15 @@ import Dependencies.ktx
 import Dependencies.material
 import Dependencies.stdLib
 
-object AppModule : Module() {
+object AppBuildModule : BuildModule() {
     override val plugins = listOf(
         "com.android.application"
     )
     override val kotlinPlugins = listOf(
         "android"
+    )
+
+    override val localModules: List<String> = listOf(
     )
 
     override val implementations = listOf(

@@ -1,25 +1,25 @@
 plugins {
-    AppModule.plugins.forEach { plugin -> id(plugin) }
-    AppModule.kotlinPlugins.forEach { plugin -> kotlin(plugin) }
+    AppBuildModule.plugins.forEach { plugin -> id(plugin) }
+    AppBuildModule.kotlinPlugins.forEach { plugin -> kotlin(plugin) }
 }
 
 android {
-    compileSdkVersion(AppModule.compileSdk)
-    buildToolsVersion(AppModule.buildTools)
+    compileSdkVersion(AppBuildModule.compileSdk)
+    buildToolsVersion(AppBuildModule.buildTools)
 
     defaultConfig {
         applicationId = "com.keanequibilan.flashcards"
-        minSdkVersion(AppModule.minSdk)
-        targetSdkVersion(AppModule.targetSdk)
-        versionCode(AppModule.versionCode)
-        versionName(AppModule.versionName)
+        minSdkVersion(AppBuildModule.minSdk)
+        targetSdkVersion(AppBuildModule.targetSdk)
+        versionCode(AppBuildModule.versionCode)
+        versionName(AppBuildModule.versionName)
 
-        testInstrumentationRunner = AppModule.testInstrumentationRunner
+        testInstrumentationRunner = AppBuildModule.testInstrumentationRunner
     }
 
     buildTypes {
         getByName("release") {
-            isMinifyEnabled = AppModule.isMinifyEnabled
+            isMinifyEnabled = AppBuildModule.isMinifyEnabled
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -27,16 +27,17 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = AppModule.compileCompatibility
-        targetCompatibility = AppModule.compileCompatibility
+        sourceCompatibility = AppBuildModule.compileCompatibility
+        targetCompatibility = AppBuildModule.compileCompatibility
     }
     kotlinOptions {
-        jvmTarget = AppModule.jvmTarget
+        jvmTarget = AppBuildModule.jvmTarget
     }
 }
 
 dependencies {
-    AppModule.run {
+    AppBuildModule.run {
+        localModules.forEach { lib -> add("implementation", project(lib)) }
         implementations.forEach { lib -> add("implementation", lib) }
         kapts.forEach { lib -> add("kapt", lib) }
         testImplementations.forEach { lib -> add("testImplementation", lib) }

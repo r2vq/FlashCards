@@ -1,13 +1,17 @@
 import org.gradle.api.JavaVersion
 
-abstract class Module {
+abstract class BuildModule {
     abstract val plugins: List<String>
     abstract val kotlinPlugins: List<String>
 
+    abstract val localModules: List<String>
     abstract val implementations: List<String>
     abstract val kapts: List<String>
     abstract val testImplementations: List<String>
     abstract val androidTestImplementations: List<String>
+
+    protected val database = ":database"
+    protected val repository = ":repository"
 
     val compileSdk = 30
     val buildTools = "30.0.3"

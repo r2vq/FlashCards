@@ -1,25 +1,25 @@
 plugins {
-    DatabaseModule.plugins.forEach { plugin -> id(plugin) }
-    DatabaseModule.kotlinPlugins.forEach { plugin -> kotlin(plugin) }
+    DatabaseBuildModule.plugins.forEach { plugin -> id(plugin) }
+    DatabaseBuildModule.kotlinPlugins.forEach { plugin -> kotlin(plugin) }
 }
 
 android {
-    compileSdkVersion(DatabaseModule.compileSdk)
-    buildToolsVersion(DatabaseModule.buildTools)
+    compileSdkVersion(DatabaseBuildModule.compileSdk)
+    buildToolsVersion(DatabaseBuildModule.buildTools)
 
     defaultConfig {
-        minSdkVersion(DatabaseModule.minSdk)
-        targetSdkVersion(DatabaseModule.targetSdk)
-        versionCode(DatabaseModule.versionCode)
-        versionName(DatabaseModule.versionName)
+        minSdkVersion(DatabaseBuildModule.minSdk)
+        targetSdkVersion(DatabaseBuildModule.targetSdk)
+        versionCode(DatabaseBuildModule.versionCode)
+        versionName(DatabaseBuildModule.versionName)
 
-        testInstrumentationRunner = DatabaseModule.testInstrumentationRunner
+        testInstrumentationRunner = DatabaseBuildModule.testInstrumentationRunner
         consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
         getByName("release") {
-            isMinifyEnabled = DatabaseModule.isMinifyEnabled
+            isMinifyEnabled = DatabaseBuildModule.isMinifyEnabled
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -27,16 +27,17 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = DatabaseModule.compileCompatibility
-        targetCompatibility = DatabaseModule.compileCompatibility
+        sourceCompatibility = DatabaseBuildModule.compileCompatibility
+        targetCompatibility = DatabaseBuildModule.compileCompatibility
     }
     kotlinOptions {
-        jvmTarget = DatabaseModule.jvmTarget
+        jvmTarget = DatabaseBuildModule.jvmTarget
     }
 }
 
 dependencies {
-    DatabaseModule.run {
+    DatabaseBuildModule.run {
+        localModules.forEach { lib -> add("implementation", project(lib)) }
         implementations.forEach { lib -> add("implementation", lib) }
         kapts.forEach { lib -> add("kapt", lib) }
         testImplementations.forEach { lib -> add("testImplementation", lib) }
