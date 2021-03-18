@@ -10,10 +10,10 @@ import Dependencies.stdLib
 
 object RepositoryBuildModule : BuildModule() {
     override val plugins = listOf(
-        "com.android.library"
+        library
     )
     override val kotlinPlugins = listOf(
-        "android"
+        android
     )
 
     override val localModules = listOf(

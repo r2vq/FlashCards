@@ -1,6 +1,11 @@
 import org.gradle.api.JavaVersion
 
 abstract class BuildModule {
+    protected val application = "com.android.application"
+    protected val library = "com.android.library"
+    protected val android = "android"
+    protected val kapt = "kapt"
+
     abstract val plugins: List<String>
     abstract val kotlinPlugins: List<String>
 
@@ -13,6 +18,7 @@ abstract class BuildModule {
     protected val database = ":database"
     protected val di = ":di"
     protected val repository = ":repository"
+    protected val viewmodel = ":viewmodel"
 
     val compileSdk = 30
     val buildTools = "30.0.3"

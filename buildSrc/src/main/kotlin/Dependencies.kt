@@ -9,6 +9,11 @@ object Dependencies {
 
     // android
     const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
+    const val lifecycleCompiler = "androidx.lifecycle:lifecycle-compiler:${Versions.lifecycle}"
+    const val liveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}"
+    const val liveDataTesting = "androidx.arch.core:core-testing:${Versions.arch}"
+    const val saveState = "androidx.lifecycle:lifecycle-viewmodel-savedstate:${Versions.lifecycle}"
+    const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
 
     // constraint
     const val constraint = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"

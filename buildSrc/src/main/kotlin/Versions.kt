@@ -9,6 +9,8 @@ object Versions {
 
     // android
     const val appcompat = "1.2.0"
+    const val arch = "2.1.0"
+    const val lifecycle = "2.3.0"
 
     // database
     const val room = "2.2.6"

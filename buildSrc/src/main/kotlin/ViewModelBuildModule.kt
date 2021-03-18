@@ -4,12 +4,14 @@ import Dependencies.junit
 import Dependencies.junitExt
 import Dependencies.koin
 import Dependencies.ktx
-import Dependencies.room
-import Dependencies.roomKapt
-import Dependencies.roomKtx
+import Dependencies.lifecycleCompiler
+import Dependencies.liveData
+import Dependencies.liveDataTesting
+import Dependencies.saveState
 import Dependencies.stdLib
+import Dependencies.viewModel
 
-object DatabaseBuildModule : BuildModule() {
+object ViewModelBuildModule : BuildModule() {
     override val plugins = listOf(
         library
     )
@@ -18,7 +20,8 @@ object DatabaseBuildModule : BuildModule() {
         kapt
     )
 
-    override val localModules: List<String> = listOf(
+    override val localModules = listOf(
+        repository
     )
 
     override val implementations = listOf(
@@ -26,16 +29,18 @@ object DatabaseBuildModule : BuildModule() {
         ktx,
         appcompat,
         koin,
-        room,
-        roomKtx
+        liveData,
+        saveState,
+        viewModel
     )
 
     override val kapts = listOf(
-        roomKapt
+        lifecycleCompiler
     )
 
     override val testImplementations = listOf(
-        junit
+        junit,
+        liveDataTesting
     )
 
     override val androidTestImplementations = listOf(

@@ -10,10 +10,10 @@ import Dependencies.stdLib
 
 object AppBuildModule : BuildModule() {
     override val plugins = listOf(
-        "com.android.application"
+        application
     )
     override val kotlinPlugins = listOf(
-        "android"
+        android
     )
 
     override val localModules: List<String> = listOf(

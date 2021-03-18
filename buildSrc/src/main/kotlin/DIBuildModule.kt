@@ -8,15 +8,16 @@ import Dependencies.stdLib
 
 object DIBuildModule : BuildModule() {
     override val plugins = listOf(
-        "com.android.library"
+        library
     )
     override val kotlinPlugins = listOf(
-        "android"
+        android
     )
 
     override val localModules = listOf(
         database,
-        repository
+        repository,
+        viewmodel
     )
 
     override val implementations = listOf(
