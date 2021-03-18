@@ -1,6 +1,7 @@
 package com.keanequibilan.viewmodel.model
 
 object ListItemType {
+    const val unknown = -1
     const val cardListItem = 0
 }
 

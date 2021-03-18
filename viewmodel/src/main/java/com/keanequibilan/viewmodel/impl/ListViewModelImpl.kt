@@ -8,7 +8,7 @@ import com.keanequibilan.viewmodel.ListViewModel
 import com.keanequibilan.viewmodel.model.ListItem
 import com.keanequibilan.viewmodel.util.toListItem
 
-class ListViewModelImpl(
+internal class ListViewModelImpl(
     repo: Repository
 ) : ListViewModel() {
     override val listItems: LiveData<PagedList<ListItem>> = repo

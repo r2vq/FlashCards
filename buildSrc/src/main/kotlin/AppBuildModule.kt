@@ -6,6 +6,7 @@ import Dependencies.junitExt
 import Dependencies.koin
 import Dependencies.ktx
 import Dependencies.material
+import Dependencies.paging
 import Dependencies.stdLib
 
 object AppBuildModule : BuildModule() {
@@ -17,7 +18,8 @@ object AppBuildModule : BuildModule() {
     )
 
     override val localModules: List<String> = listOf(
-        di
+        di,
+        viewmodel
     )
 
     override val implementations = listOf(
@@ -25,8 +27,9 @@ object AppBuildModule : BuildModule() {
         koin,
         ktx,
         appcompat,
+        constraint,
         material,
-        constraint
+        paging
     )
 
     override val kapts: List<String> = listOf(
