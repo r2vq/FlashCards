@@ -11,27 +11,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        app:layout_constraintBottom_toTopOf="@id/tv_hello"
+        android:hint="Item Name"
+        app:layout_constraintBottom_toTopOf="@id/spacer"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"
-        tools:text="@tools:sample/lorem" />
+        app:layout_constraintVertical_chainStyle="packed" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tv_hello"
+    <Space
+        android:id="@+id/spacer"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         app:layout_constraintBottom_toTopOf="@id/btn_add"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_name"
-        tools:text="@tools:sample/lorem" />
+        app:layout_constraintTop_toBottomOf="@id/et_name" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_add"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Add Item"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_hello"
-        tools:text="@tools:sample/lorem" />
+        app:layout_constraintTop_toBottomOf="@id/spacer" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

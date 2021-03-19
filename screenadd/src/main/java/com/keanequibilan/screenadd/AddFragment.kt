@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment.findNavController
 import com.keanequibilan.screenadd.viewmodel.AddViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -22,6 +23,7 @@ class AddFragment : Fragment() {
         view.findViewById<AppCompatButton>(R.id.btn_add).setOnClickListener {
             val name = view.findViewById<AppCompatEditText>(R.id.et_name).text.toString()
             addViewModel.createCard(name)
+            findNavController(this).popBackStack()
         }
         return view
     }
