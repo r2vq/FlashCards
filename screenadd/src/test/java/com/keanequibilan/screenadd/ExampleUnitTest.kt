@@ -1,4 +1,4 @@
-package com.keanequibilan.viewmodel
+package com.keanequibilan.screenadd
 
 import org.junit.Test
 

@@ -1,14 +1,14 @@
-package com.keanequibilan.viewmodel
+package com.keanequibilan.screenadd
 
 import com.keanequibilan.repository.Repository
-import com.keanequibilan.viewmodel.impl.CreateViewModelImpl
+import com.keanequibilan.screenadd.viewmodel.AddViewModel
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
-val VIEW_MODEL_MODULE = module {
-    viewModel<CreateViewModel> {
+val SCREEN_ADD_MODULE = module {
+    viewModel {
         val repository: Repository = get()
-        CreateViewModelImpl(
+        AddViewModel(
             repo = repository
         )
     }

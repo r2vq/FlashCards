@@ -3,7 +3,7 @@ include(
     ":database",
     ":di",
     ":repository",
-    ":screenlist",
-    ":viewmodel"
+    ":screenadd",
+    ":screenlist"
 )
 rootProject.name = "FlashCards"

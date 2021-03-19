@@ -17,8 +17,8 @@ object DIBuildModule : BuildModule() {
     override val localModules = listOf(
         database,
         repository,
-        screenlist,
-        viewmodel
+        screenadd,
+        screenlist
     )
 
     override val implementations = listOf(

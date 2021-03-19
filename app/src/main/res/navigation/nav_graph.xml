@@ -7,4 +7,9 @@
         android:id="@+id/listFragment"
         android:name="com.keanequibilan.screenlist.ListFragment"
         android:label="ListFragment" />
+
+    <fragment
+        android:id="@+id/addFragment"
+        android:name="com.keanequibilan.screenadd.AddFragment"
+        android:label="AddFragment" />
 </navigation>

@@ -18,8 +18,8 @@ abstract class BuildModule {
     protected val database = ":database"
     protected val di = ":di"
     protected val repository = ":repository"
+    protected val screenadd = ":screenadd"
     protected val screenlist = ":screenlist"
-    protected val viewmodel = ":viewmodel"
 
     val compileSdk = 30
     val buildTools = "30.0.3"

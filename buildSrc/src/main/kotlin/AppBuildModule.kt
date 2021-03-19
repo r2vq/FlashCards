@@ -21,8 +21,8 @@ object AppBuildModule : BuildModule() {
 
     override val localModules: List<String> = listOf(
         di,
-        screenlist,
-        viewmodel
+        screenadd,
+        screenlist
     )
 
     override val implementations = listOf(

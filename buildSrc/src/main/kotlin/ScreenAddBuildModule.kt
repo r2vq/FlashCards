@@ -1,26 +1,26 @@
 import Dependencies.appcompat
+import Dependencies.constraint
 import Dependencies.espressoCore
 import Dependencies.junit
 import Dependencies.junitExt
 import Dependencies.koin
 import Dependencies.ktx
-import Dependencies.lifecycleCompiler
-import Dependencies.liveData
-import Dependencies.liveDataTesting
+import Dependencies.material
+import Dependencies.navigationFragment
+import Dependencies.navigationUi
 import Dependencies.paging
 import Dependencies.pagingKtx
 import Dependencies.pagingTesting
-import Dependencies.saveState
+import Dependencies.recyclerView
 import Dependencies.stdLib
 import Dependencies.viewModel
 
-object ViewModelBuildModule : BuildModule() {
+object ScreenAddBuildModule : BuildModule() {
     override val plugins = listOf(
         library
     )
     override val kotlinPlugins = listOf(
-        android,
-        kapt
+        android
     )
 
     override val localModules = listOf(
@@ -31,21 +31,22 @@ object ViewModelBuildModule : BuildModule() {
         stdLib,
         ktx,
         appcompat,
+        constraint,
         koin,
-        liveData,
+        material,
+        navigationFragment,
+        navigationUi,
         paging,
         pagingKtx,
-        saveState,
+        recyclerView,
         viewModel
     )
 
-    override val kapts = listOf(
-        lifecycleCompiler
+    override val kapts = listOf<String>(
     )
 
     override val testImplementations = listOf(
         junit,
-        liveDataTesting,
         pagingTesting
     )
 

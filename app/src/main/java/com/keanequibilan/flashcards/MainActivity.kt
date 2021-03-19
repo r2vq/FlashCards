@@ -2,14 +2,10 @@ package com.keanequibilan.flashcards
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.Navigation.findNavController
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.keanequibilan.viewmodel.CreateViewModel
-import org.koin.android.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
-
-    private val createViewModel: CreateViewModel by viewModel()
-    private var count = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,7 +13,8 @@ class MainActivity : AppCompatActivity() {
 
         val fab: FloatingActionButton = findViewById(R.id.fab_create)
         fab.setOnClickListener {
-            createViewModel.createCard("Add new card ${++count}")
+            findNavController(this@MainActivity, R.id.nav_host_fragment)
+                .navigate(R.id.addFragment)
         }
     }
 }
