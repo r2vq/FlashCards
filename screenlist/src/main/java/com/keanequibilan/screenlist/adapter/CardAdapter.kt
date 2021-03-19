@@ -1,16 +1,16 @@
-package com.keanequibilan.flashcards.adapter
+package com.keanequibilan.screenlist.adapter
 
 import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
-import com.keanequibilan.flashcards.R
 import com.keanequibilan.flashcards.diffutil.ListItemDiffUtil
 import com.keanequibilan.flashcards.util.inflateChild
-import com.keanequibilan.flashcards.viewholder.CardListItemViewHolder
-import com.keanequibilan.flashcards.viewholder.ItemViewHolder
-import com.keanequibilan.viewmodel.model.ListItem
-import com.keanequibilan.viewmodel.model.ListItemType
+import com.keanequibilan.screenlist.R
+import com.keanequibilan.screenlist.model.ListItem
+import com.keanequibilan.screenlist.model.ListItemType
+import com.keanequibilan.screenlist.viewholder.CardListItemViewHolder
+import com.keanequibilan.screenlist.viewholder.ItemViewHolder
 
-class CardAdapter : PagedListAdapter<ListItem, ItemViewHolder>(ListItemDiffUtil) {
+internal class CardAdapter : PagedListAdapter<ListItem, ItemViewHolder>(ListItemDiffUtil) {
     override fun getItemViewType(position: Int): Int =
         getItem(position)?.type ?: ListItemType.unknown
 

@@ -11,6 +11,7 @@ object Versions {
     const val appcompat = "1.2.0"
     const val arch = "2.1.0"
     const val lifecycle = "2.3.0"
+    const val recyclerView = "1.1.0"
 
     // constraint layout
     const val constraintLayout = "2.0.4"
@@ -23,6 +24,9 @@ object Versions {
 
     // material
     const val material = "1.3.0"
+
+    // navigation
+    const val navigation = "2.3.4"
 
     // paging
     const val paging = "2.1.2"

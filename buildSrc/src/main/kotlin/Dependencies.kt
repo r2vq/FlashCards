@@ -12,6 +12,7 @@ object Dependencies {
     const val lifecycleCompiler = "androidx.lifecycle:lifecycle-compiler:${Versions.lifecycle}"
     const val liveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}"
     const val liveDataTesting = "androidx.arch.core:core-testing:${Versions.arch}"
+    const val recyclerView = "androidx.recyclerview:recyclerview:${Versions.recyclerView}"
     const val saveState = "androidx.lifecycle:lifecycle-viewmodel-savedstate:${Versions.lifecycle}"
     const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
 
@@ -28,6 +29,10 @@ object Dependencies {
 
     // material
     const val material = "com.google.android.material:material:${Versions.material}"
+
+    // navigation
+    const val navigationFragment = "androidx.navigation:navigation-fragment:${Versions.navigation}"
+    const val navigationUi = "androidx.navigation:navigation-ui:${Versions.navigation}"
 
     // paging
     const val paging = "androidx.paging:paging-runtime:${Versions.paging}"

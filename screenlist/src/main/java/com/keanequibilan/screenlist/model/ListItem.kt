@@ -1,18 +1,19 @@
-package com.keanequibilan.viewmodel.model
+package com.keanequibilan.screenlist.model
 
-object ListItemType {
+internal object ListItemType {
     const val unknown = -1
     const val cardListItem = 0
 }
 
-sealed class ListItem {
+internal sealed class ListItem {
     abstract val id: Int
     abstract val type: Int
 }
 
-data class CardListItem(
+internal data class CardListItem(
     override val id: Int,
     val name: String
 ) : ListItem() {
     override val type = ListItemType.cardListItem
 }
+

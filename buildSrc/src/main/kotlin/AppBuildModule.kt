@@ -6,6 +6,8 @@ import Dependencies.junitExt
 import Dependencies.koin
 import Dependencies.ktx
 import Dependencies.material
+import Dependencies.navigationFragment
+import Dependencies.navigationUi
 import Dependencies.paging
 import Dependencies.stdLib
 
@@ -19,6 +21,7 @@ object AppBuildModule : BuildModule() {
 
     override val localModules: List<String> = listOf(
         di,
+        screenlist,
         viewmodel
     )
 
@@ -29,6 +32,8 @@ object AppBuildModule : BuildModule() {
         appcompat,
         constraint,
         material,
+        navigationFragment,
+        navigationUi,
         paging
     )
 
