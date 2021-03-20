@@ -12,17 +12,16 @@ import com.keanequibilan.screenswipe.model.CardItemType.UNKNOWN
 import com.keanequibilan.screenswipe.viewholder.BackCardItemViewHolder
 import com.keanequibilan.screenswipe.viewholder.CardItemViewHolder
 import com.keanequibilan.screenswipe.viewholder.FrontCardItemViewHolder
+import com.keanequibilan.screenswipe.viewholder.UnknownViewHolder
 
 internal class CardAdapter : PagedListAdapter<CardItem, CardItemViewHolder>(CardItemDiffUtil) {
-    override fun getItemViewType(position: Int): Int {
-        return getItem(position)?.type ?: UNKNOWN.intValue
-    }
+    override fun getItemViewType(position: Int): Int = getItem(position)?.type ?: UNKNOWN.intValue
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardItemViewHolder =
         when (viewType) {
             FRONT.intValue -> FrontCardItemViewHolder(parent.inflateChild(R.layout.card_item_front))
             BACK.intValue -> BackCardItemViewHolder(parent.inflateChild(R.layout.card_item_back))
-            else -> throw IllegalArgumentException("Unexpected card view type")
+            else -> UnknownViewHolder(parent.inflateChild(R.layout.card_item_front))
         }
 
     override fun onBindViewHolder(holder: CardItemViewHolder, position: Int) {

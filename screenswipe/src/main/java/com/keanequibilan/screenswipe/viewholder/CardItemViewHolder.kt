@@ -12,6 +12,13 @@ internal abstract class CardItemViewHolder(itemView: View) : RecyclerView.ViewHo
     abstract fun bind(item: CardItem?)
 }
 
+internal class UnknownViewHolder(itemView: View) :
+    CardItemViewHolder(itemView) {
+    override fun bind(item: CardItem?) {
+        // no-op
+    }
+}
+
 internal class FrontCardItemViewHolder(itemView: View) :
     CardItemViewHolder(itemView) {
     private val tvMessage = itemView.findViewById<AppCompatTextView>(R.id.tv_message)
