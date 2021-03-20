@@ -14,6 +14,9 @@ object Versions {
     const val multidex = "2.0.1"
     const val recyclerView = "1.1.0"
 
+    // card swipe view
+    const val cardStackView = "2.3.4"
+
     // constraint layout
     const val constraintLayout = "2.0.4"
 

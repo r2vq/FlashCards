@@ -17,6 +17,9 @@ object Dependencies {
     const val saveState = "androidx.lifecycle:lifecycle-viewmodel-savedstate:${Versions.lifecycle}"
     const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
 
+    // card swipe view
+    const val cardStackView = "com.yuyakaido.android:card-stack-view:${Versions.cardStackView}"
+
     // constraint
     const val constraint = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
 

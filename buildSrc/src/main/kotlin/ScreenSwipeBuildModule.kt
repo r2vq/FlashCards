@@ -1,4 +1,5 @@
 import Dependencies.appcompat
+import Dependencies.cardStackView
 import Dependencies.constraint
 import Dependencies.espressoCore
 import Dependencies.junit
@@ -32,6 +33,7 @@ object ScreenSwipeBuildModule : BuildModule() {
         stdLib,
         ktx,
         appcompat,
+        cardStackView,
         constraint,
         koin,
         material,
