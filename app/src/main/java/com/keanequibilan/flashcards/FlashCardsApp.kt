@@ -1,12 +1,12 @@
 package com.keanequibilan.flashcards
 
-import android.app.Application
+import androidx.multidex.MultiDexApplication
 import com.keanequibilan.di.DI_MODULES
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
 @Suppress("unused")
-class FlashCardsApp : Application() {
+class FlashCardsApp : MultiDexApplication() {
     override fun onCreate() {
         super.onCreate()
         startKoin {

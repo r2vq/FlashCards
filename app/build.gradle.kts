@@ -10,6 +10,7 @@ android {
     defaultConfig {
         applicationId = "com.keanequibilan.flashcards"
         minSdkVersion(AppBuildModule.minSdk)
+        multiDexEnabled = AppBuildModule.multiDexEnabled
         targetSdkVersion(AppBuildModule.targetSdk)
         versionCode(AppBuildModule.versionCode)
         versionName(AppBuildModule.versionName)

@@ -6,6 +6,7 @@ import Dependencies.junitExt
 import Dependencies.koin
 import Dependencies.ktx
 import Dependencies.material
+import Dependencies.multidex
 import Dependencies.navigationFragment
 import Dependencies.navigationUi
 import Dependencies.paging
@@ -33,6 +34,7 @@ object AppBuildModule : BuildModule() {
         appcompat,
         constraint,
         material,
+        multidex,
         navigationFragment,
         navigationUi,
         paging

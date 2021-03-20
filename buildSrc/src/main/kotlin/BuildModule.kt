@@ -26,6 +26,7 @@ abstract class BuildModule {
     val compileSdk = 30
     val buildTools = "30.0.3"
     val minSdk = 19
+    val multiDexEnabled = true
     val targetSdk = 30
     val versionCode = 1
     val versionName = "0.0.1-alpha01"
