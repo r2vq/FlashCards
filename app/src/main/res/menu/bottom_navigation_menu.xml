@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/listFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_view_list"
+        android:title="@string/list_cards" />
+
+    <item
+        android:id="@+id/page_swipe"
+        android:enabled="true"
+        android:icon="@drawable/ic_splitscreen"
+        android:title="@string/swipe_cards" />
+
+    <item
+        android:id="@+id/addFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_add_to_photos"
+        android:title="@string/add_card" />
+</menu>
