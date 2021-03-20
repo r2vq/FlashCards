@@ -4,6 +4,7 @@ include(
     ":di",
     ":repository",
     ":screenadd",
-    ":screenlist"
+    ":screenlist",
+    ":screenswipe"
 )
 rootProject.name = "FlashCards"

@@ -20,6 +20,7 @@ abstract class BuildModule {
     protected val repository = ":repository"
     protected val screenadd = ":screenadd"
     protected val screenlist = ":screenlist"
+    protected val screenswipe = ":screenswipe"
 
     val compileSdk = 30
     val buildTools = "30.0.3"
