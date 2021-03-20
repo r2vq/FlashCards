@@ -11,6 +11,12 @@
         tools:layout="@layout/fragment_list" />
 
     <fragment
+        android:id="@+id/swipeFragment"
+        android:name="com.keanequibilan.screenswipe.SwipeFragment"
+        android:label="SwipeFragment"
+        tools:layout="@layout/fragment_swipe" />
+
+    <fragment
         android:id="@+id/addFragment"
         android:name="com.keanequibilan.screenadd.AddFragment"
         android:label="AddFragment"

@@ -7,7 +7,7 @@
         android:title="@string/list_cards" />
 
     <item
-        android:id="@+id/page_swipe"
+        android:id="@+id/swipeFragment"
         android:enabled="true"
         android:icon="@drawable/ic_splitscreen"
         android:title="@string/swipe_cards" />

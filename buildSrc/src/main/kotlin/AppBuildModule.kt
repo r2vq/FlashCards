@@ -24,7 +24,8 @@ object AppBuildModule : BuildModule() {
         common,
         di,
         screenadd,
-        screenlist
+        screenlist,
+        screenswipe
     )
 
     override val implementations = listOf(
