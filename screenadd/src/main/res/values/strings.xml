@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="front">Front</string>
+    <string name="back">Back</string>
+    <string name="add_card">Add Card</string>
+</resources>
