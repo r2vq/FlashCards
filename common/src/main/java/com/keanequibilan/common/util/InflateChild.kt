@@ -1,4 +1,4 @@
-package com.keanequibilan.flashcards.util
+package com.keanequibilan.common.util
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +7,5 @@ import androidx.annotation.LayoutRes
 
 fun ViewGroup.inflateChild(
     @LayoutRes resource: Int
-): View = LayoutInflater
-    .from(context)
+): View = LayoutInflater.from(context)
     .inflate(resource, this, false)

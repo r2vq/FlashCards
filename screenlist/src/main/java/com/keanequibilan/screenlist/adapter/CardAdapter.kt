@@ -3,7 +3,7 @@ package com.keanequibilan.screenlist.adapter
 import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import com.keanequibilan.flashcards.diffutil.ListItemDiffUtil
-import com.keanequibilan.flashcards.util.inflateChild
+import com.keanequibilan.common.util.inflateChild
 import com.keanequibilan.screenlist.R
 import com.keanequibilan.screenlist.model.ListItem
 import com.keanequibilan.screenlist.model.ListItemType
