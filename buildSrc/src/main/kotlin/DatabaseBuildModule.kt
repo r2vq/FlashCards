@@ -22,6 +22,7 @@ object DatabaseBuildModule : BuildModule() {
     )
 
     override val localModules: List<String> = listOf(
+        common
     )
 
     override val implementations = listOf(

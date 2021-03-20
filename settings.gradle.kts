@@ -1,5 +1,6 @@
 include(
     ":app",
+    ":common",
     ":database",
     ":di",
     ":repository",

@@ -1,21 +1,13 @@
 import Dependencies.appcompat
-import Dependencies.constraint
 import Dependencies.espressoCore
 import Dependencies.junit
 import Dependencies.junitExt
 import Dependencies.koin
 import Dependencies.ktx
-import Dependencies.material
-import Dependencies.navigationFragment
-import Dependencies.navigationUi
-import Dependencies.paging
-import Dependencies.pagingKtx
 import Dependencies.pagingTesting
-import Dependencies.recyclerView
 import Dependencies.stdLib
-import Dependencies.viewModel
 
-object ScreenListBuildModule : BuildModule() {
+object CommonBuildModule : BuildModule() {
     override val plugins = listOf(
         library
     )
@@ -23,24 +15,14 @@ object ScreenListBuildModule : BuildModule() {
         android
     )
 
-    override val localModules = listOf(
-        common,
-        repository
+    override val localModules = listOf<String>(
     )
 
     override val implementations = listOf(
         stdLib,
         ktx,
         appcompat,
-        constraint,
-        koin,
-        material,
-        navigationFragment,
-        navigationUi,
-        paging,
-        pagingKtx,
-        recyclerView,
-        viewModel
+        koin
     )
 
     override val kapts = listOf<String>(

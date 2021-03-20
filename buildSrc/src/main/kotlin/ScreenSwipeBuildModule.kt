@@ -24,6 +24,7 @@ object ScreenSwipeBuildModule : BuildModule() {
     )
 
     override val localModules = listOf(
+        common,
         repository
     )
 

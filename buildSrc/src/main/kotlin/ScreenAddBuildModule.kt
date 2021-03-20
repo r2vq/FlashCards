@@ -24,6 +24,7 @@ object ScreenAddBuildModule : BuildModule() {
     )
 
     override val localModules = listOf(
+        common,
         repository
     )
 

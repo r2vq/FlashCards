@@ -20,6 +20,7 @@ object RepositoryBuildModule : BuildModule() {
     )
 
     override val localModules = listOf(
+        common,
         database
     )
 
