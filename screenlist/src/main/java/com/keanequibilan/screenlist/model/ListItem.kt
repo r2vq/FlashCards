@@ -32,7 +32,7 @@ internal data class CardListItem(
 ) : ListItem(
     when {
         correct < incorrect -> DANGER_LIST_ITEM
-        correct > incorrect -> CARD_LIST_ITEM
-        else -> NEUTRAL_LIST_ITEM
+        correct == 0 -> NEUTRAL_LIST_ITEM
+        else -> CARD_LIST_ITEM
     }
 )
