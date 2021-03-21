@@ -23,6 +23,8 @@ class SwipeFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_swipe, container, false)
 
+        adapter.setOnItemClickListener { id -> swipeViewModel.toggleItem(id) }
+
         val svCards = view.findViewById<CardStackView>(R.id.sv_cards)
         svCards.layoutManager = CardStackLayoutManager(context)
         svCards.adapter = adapter

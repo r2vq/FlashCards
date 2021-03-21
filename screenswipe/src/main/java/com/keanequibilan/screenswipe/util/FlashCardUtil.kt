@@ -6,5 +6,6 @@ import com.keanequibilan.screenswipe.model.FrontCardItem
 
 internal fun LocalFlashCard.toCardItem(): CardItem = FrontCardItem(
     id = id,
-    message = front
+    message = front,
+    otherMessage = back
 )

@@ -15,16 +15,27 @@ import com.keanequibilan.screenswipe.viewholder.FrontCardItemViewHolder
 import com.keanequibilan.screenswipe.viewholder.UnknownViewHolder
 
 internal class CardAdapter : ListAdapter<CardItem, CardItemViewHolder>(CardItemDiffUtil) {
+
+    private var onItemClickListener: ((Int) -> Unit)? = null
+
     override fun getItemViewType(position: Int): Int = getItem(position)?.type ?: UNKNOWN.intValue
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardItemViewHolder =
         when (viewType) {
-            FRONT.intValue -> FrontCardItemViewHolder(parent.inflateChild(R.layout.card_item_front))
-            BACK.intValue -> BackCardItemViewHolder(parent.inflateChild(R.layout.card_item_back))
+            FRONT.intValue -> FrontCardItemViewHolder(parent.inflateChild(R.layout.card_item_front)) { id ->
+                onItemClickListener?.invoke(id)
+            }
+            BACK.intValue -> BackCardItemViewHolder(parent.inflateChild(R.layout.card_item_back)) { id ->
+                onItemClickListener?.invoke(id)
+            }
             else -> UnknownViewHolder(parent.inflateChild(R.layout.card_item_front))
         }
 
     override fun onBindViewHolder(holder: CardItemViewHolder, position: Int) {
         holder.bind(getItem(position))
+    }
+
+    fun setOnItemClickListener(callback: ((Int) -> Unit)?) {
+        onItemClickListener = callback
     }
 }

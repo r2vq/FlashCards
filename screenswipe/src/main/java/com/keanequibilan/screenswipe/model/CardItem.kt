@@ -2,7 +2,6 @@ package com.keanequibilan.screenswipe.model
 
 import com.keanequibilan.screenswipe.model.CardItemType.BACK
 import com.keanequibilan.screenswipe.model.CardItemType.FRONT
-import kotlin.reflect.KProperty
 
 internal enum class CardItemType(val intValue: Int) {
     UNKNOWN(-1),
@@ -19,14 +18,16 @@ internal sealed class CardItem(
 
 internal data class FrontCardItem(
     override val id: Int,
-    val message: String
+    val message: String,
+    val otherMessage: String
 ) : CardItem(
     FRONT
 )
 
 internal data class BackCardItem(
     override val id: Int,
-    val message: String
+    val message: String,
+    val otherMessage: String
 ) : CardItem(
     BACK
 )
