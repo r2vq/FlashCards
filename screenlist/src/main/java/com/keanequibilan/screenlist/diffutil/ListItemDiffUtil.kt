@@ -1,4 +1,4 @@
-package com.keanequibilan.flashcards.diffutil
+package com.keanequibilan.screenlist.diffutil
 
 import androidx.recyclerview.widget.DiffUtil
 import com.keanequibilan.screenlist.model.ListItem
