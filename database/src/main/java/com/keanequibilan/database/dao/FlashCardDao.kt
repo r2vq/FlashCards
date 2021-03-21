@@ -16,4 +16,7 @@ interface FlashCardDao {
 
     @Insert
     suspend fun insertAll(vararg card: FlashCardEntity)
+
+    @Query("DELETE FROM FlashCardEntity WHERE `id` = :id")
+    fun delete(id: Int)
 }

@@ -11,10 +11,26 @@ internal sealed class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(i
     abstract fun bind(item: ListItem?)
 }
 
-internal class CardListItemViewHolder(itemView: View) : ItemViewHolder(itemView) {
+internal class CardListItemViewHolder(
+    itemView: View,
+    onClick: ((item: CardListItem) -> Unit)
+) : ItemViewHolder(itemView) {
     private val tvName: AppCompatTextView = itemView.findViewById(R.id.tv_name)
+    private var cardListItem: CardListItem? = null
+
+    init {
+        itemView.setOnClickListener {
+            cardListItem?.let { onClick(it) }
+        }
+    }
 
     override fun bind(item: ListItem?) {
-        tvName.text = (item as? CardListItem)?.name
+        (item as? CardListItem)?.let {
+            cardListItem = it
+            tvName.text = it.name
+        } ?: run {
+            cardListItem = null
+            tvName.text = ""
+        }
     }
 }

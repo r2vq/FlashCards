@@ -28,4 +28,8 @@ internal class RepositoryImpl(
                 back = back
             )
         )
+
+    override suspend fun deleteCard(id: Int) = db
+        .flashCardDao()
+        .delete(id)
 }

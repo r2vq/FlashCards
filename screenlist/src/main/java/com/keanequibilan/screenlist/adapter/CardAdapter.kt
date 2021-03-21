@@ -2,15 +2,18 @@ package com.keanequibilan.screenlist.adapter
 
 import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
-import com.keanequibilan.screenlist.diffutil.ListItemDiffUtil
 import com.keanequibilan.common.util.inflateChild
 import com.keanequibilan.screenlist.R
+import com.keanequibilan.screenlist.diffutil.ListItemDiffUtil
+import com.keanequibilan.screenlist.model.CardListItem
 import com.keanequibilan.screenlist.model.ListItem
 import com.keanequibilan.screenlist.model.ListItemType
 import com.keanequibilan.screenlist.viewholder.CardListItemViewHolder
 import com.keanequibilan.screenlist.viewholder.ItemViewHolder
 
 internal class CardAdapter : PagedListAdapter<ListItem, ItemViewHolder>(ListItemDiffUtil) {
+    private var onItemClickListener: ((item: CardListItem) -> Unit)? = null
+
     override fun getItemViewType(position: Int): Int =
         getItem(position)?.type ?: ListItemType.unknown
 
@@ -18,12 +21,16 @@ internal class CardAdapter : PagedListAdapter<ListItem, ItemViewHolder>(ListItem
         when (viewType) {
             ListItemType.cardListItem -> CardListItemViewHolder(
                 parent.inflateChild(R.layout.list_item_card)
-            )
+            ) { item -> onItemClickListener?.invoke(item) }
             ListItemType.unknown -> throw IllegalArgumentException("Unknown card type")
             else -> throw IllegalArgumentException("Unmatched card type")
         }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.bind(getItem(position))
+    }
+
+    fun setOnItemClickListener(callback: ((id: CardListItem) -> Unit)?) {
+        onItemClickListener = callback
     }
 }

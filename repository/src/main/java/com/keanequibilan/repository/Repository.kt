@@ -12,4 +12,6 @@ interface Repository {
         front: String,
         back: String
     )
+
+    suspend fun deleteCard(id: Int)
 }

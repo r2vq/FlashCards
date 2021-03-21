@@ -1,5 +1,6 @@
 package com.keanequibilan.screenlist
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -21,6 +22,18 @@ class ListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_list, container, false)
+
+        adapter.setOnItemClickListener { item ->
+            AlertDialog
+                .Builder(context)
+                .setMessage("Delete ${item.name}?")
+                .setPositiveButton("Yes") { _, _ ->
+                    listViewModel.deleteItem(item.id)
+                }
+                .setNegativeButton("No") { _, _ -> }
+                .create()
+                .show()
+        }
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.rv_list)
         recyclerView.adapter = adapter
