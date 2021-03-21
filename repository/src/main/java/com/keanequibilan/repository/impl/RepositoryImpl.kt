@@ -15,11 +15,6 @@ internal class RepositoryImpl(
         .getAll()
         .mapNotNull(FlashCardEntity?::toLocalFlashCard)
 
-    override suspend fun getCard(id: Int): LocalFlashCard? = db
-        .flashCardDao()
-        .getFlashCard(id)
-        .let(FlashCardEntity?::toLocalFlashCard)
-
     override fun getCardsPaged(): DataSource.Factory<Int, LocalFlashCard> = db
         .flashCardDao()
         .getFlashCardPaged()

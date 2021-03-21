@@ -5,6 +5,7 @@ import com.keanequibilan.screenswipe.adapter.CardAdapter
 import com.keanequibilan.screenswipe.viewmodel.SwipeViewModel
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
+import java.util.*
 
 val SCREEN_SWIPE_MODULE = module {
     factory {
@@ -13,8 +14,10 @@ val SCREEN_SWIPE_MODULE = module {
 
     viewModel {
         val repository = get<Repository>()
+        val random = Random(System.currentTimeMillis())
         SwipeViewModel(
-            repo = repository
+            repo = repository,
+            random = random
         )
     }
 }

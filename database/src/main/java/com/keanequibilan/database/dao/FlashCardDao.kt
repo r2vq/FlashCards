@@ -11,9 +11,6 @@ interface FlashCardDao {
     @Query("SELECT * FROM FlashCardEntity")
     suspend fun getAll(): List<FlashCardEntity>
 
-    @Query("SELECT * FROM FlashCardEntity WHERE `id` = :id")
-    suspend fun getFlashCard(id: Int): FlashCardEntity?
-
     @Query("SELECT * FROM FlashCardEntity")
     fun getFlashCardPaged(): DataSource.Factory<Int, FlashCardEntity>
 

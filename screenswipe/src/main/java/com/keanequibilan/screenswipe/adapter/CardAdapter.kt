@@ -1,7 +1,7 @@
 package com.keanequibilan.screenswipe.adapter
 
 import android.view.ViewGroup
-import androidx.paging.PagedListAdapter
+import androidx.recyclerview.widget.ListAdapter
 import com.keanequibilan.common.util.inflateChild
 import com.keanequibilan.screenswipe.R
 import com.keanequibilan.screenswipe.diffutil.CardItemDiffUtil
@@ -14,7 +14,7 @@ import com.keanequibilan.screenswipe.viewholder.CardItemViewHolder
 import com.keanequibilan.screenswipe.viewholder.FrontCardItemViewHolder
 import com.keanequibilan.screenswipe.viewholder.UnknownViewHolder
 
-internal class CardAdapter : PagedListAdapter<CardItem, CardItemViewHolder>(CardItemDiffUtil) {
+internal class CardAdapter : ListAdapter<CardItem, CardItemViewHolder>(CardItemDiffUtil) {
     override fun getItemViewType(position: Int): Int = getItem(position)?.type ?: UNKNOWN.intValue
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardItemViewHolder =
