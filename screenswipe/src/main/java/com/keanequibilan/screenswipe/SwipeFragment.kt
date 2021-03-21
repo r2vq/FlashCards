@@ -49,6 +49,7 @@ class SwipeFragment : Fragment(), CardStackListener {
             }
 
         cardStackLayoutManager = CardStackLayoutManager(context, this)
+        cardStackLayoutManager.setDirections(Direction.FREEDOM)
         svCards.layoutManager = cardStackLayoutManager
         svCards.adapter = adapter
 
