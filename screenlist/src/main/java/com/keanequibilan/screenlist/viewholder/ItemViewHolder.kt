@@ -13,7 +13,8 @@ internal sealed class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(i
 
 internal class CardListItemViewHolder(
     itemView: View,
-    onClick: ((item: CardListItem) -> Unit)
+    onClick: ((item: CardListItem) -> Unit),
+    onLongPress: ((item: CardListItem) -> Unit)
 ) : ItemViewHolder(itemView) {
     private val tvName: AppCompatTextView = itemView.findViewById(R.id.tv_name)
     private val tvCorrect: AppCompatTextView = itemView.findViewById(R.id.tv_correct)
@@ -22,7 +23,10 @@ internal class CardListItemViewHolder(
 
     init {
         itemView.setOnClickListener {
-            cardListItem?.let { onClick(it) }
+            cardListItem?.let(onClick)
+        }
+        itemView.setOnLongClickListener {
+            cardListItem?.let(onLongPress) != null
         }
     }
 

@@ -26,7 +26,19 @@ class ListFragment : Fragment() {
         adapter.setOnItemClickListener { item ->
             AlertDialog
                 .Builder(context)
-                .setMessage("Delete ${item.name}?")
+                .setMessage(getString(R.string.clear_counts_message, item.name))
+                .setPositiveButton("Yes") { _, _ ->
+                    listViewModel.clearCounts(item.id)
+                }
+                .setNegativeButton("No") { _, _ -> }
+                .create()
+                .show()
+        }
+
+        adapter.setOnItemLongPressListener { item ->
+            AlertDialog
+                .Builder(context)
+                .setMessage(getString(R.string.delete_message, item.name))
                 .setPositiveButton("Yes") { _, _ ->
                     listViewModel.deleteItem(item.id)
                 }

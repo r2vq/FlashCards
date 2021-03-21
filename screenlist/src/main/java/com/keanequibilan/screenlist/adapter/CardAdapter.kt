@@ -13,6 +13,7 @@ import com.keanequibilan.screenlist.viewholder.ItemViewHolder
 
 internal class CardAdapter : PagedListAdapter<ListItem, ItemViewHolder>(ListItemDiffUtil) {
     private var onItemClickListener: ((item: CardListItem) -> Unit)? = null
+    private var onItemLongPressListener: ((item: CardListItem) -> Unit)? = null
 
     override fun getItemViewType(position: Int): Int =
         getItem(position)?.type ?: ListItemType.unknown
@@ -20,8 +21,10 @@ internal class CardAdapter : PagedListAdapter<ListItem, ItemViewHolder>(ListItem
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder =
         when (viewType) {
             ListItemType.cardListItem -> CardListItemViewHolder(
-                parent.inflateChild(R.layout.list_item)
-            ) { item -> onItemClickListener?.invoke(item) }
+                itemView = parent.inflateChild(R.layout.list_item),
+                onClick = { item -> onItemClickListener?.invoke(item) },
+                onLongPress = { item -> onItemLongPressListener?.invoke(item) }
+            )
             ListItemType.unknown -> throw IllegalArgumentException("Unknown card type")
             else -> throw IllegalArgumentException("Unmatched card type")
         }
@@ -32,5 +35,9 @@ internal class CardAdapter : PagedListAdapter<ListItem, ItemViewHolder>(ListItem
 
     fun setOnItemClickListener(callback: ((id: CardListItem) -> Unit)?) {
         onItemClickListener = callback
+    }
+
+    fun setOnItemLongPressListener(callback: ((id: CardListItem) -> Unit)?) {
+        onItemLongPressListener = callback
     }
 }

@@ -35,6 +35,10 @@ internal class RepositoryImpl(
         .flashCardDao()
         .delete(id)
 
+    override suspend fun clearCounts(id: Int) = db
+        .flashCardDao()
+        .clearCounts(id)
+
     override suspend fun incrementCorrect(id: Int) = db
         .flashCardDao()
         .incrementCorrect(id)

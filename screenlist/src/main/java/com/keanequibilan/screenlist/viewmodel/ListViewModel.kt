@@ -22,4 +22,8 @@ internal class ListViewModel(
     fun deleteItem(id: Int) = viewModelScope.launch(Dispatchers.IO) {
         repo.deleteCard(id)
     }
+
+    fun clearCounts(id: Int) = viewModelScope.launch(Dispatchers.IO) {
+        repo.clearCounts(id)
+    }
 }

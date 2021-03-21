@@ -25,4 +25,7 @@ interface FlashCardDao {
 
     @Query("UPDATE FlashCardEntity SET `incorrectCount` = `incorrectCount` + 1 WHERE `id` = :id")
     fun incrementIncorrect(id: Int)
+
+    @Query("UPDATE FlashCardEntity SET `correctCount` = 0, `incorrectCount` = 0 WHERE `id` = :id")
+    fun clearCounts(id: Int)
 }
