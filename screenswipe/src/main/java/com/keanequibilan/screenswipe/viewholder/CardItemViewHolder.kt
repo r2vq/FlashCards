@@ -2,6 +2,7 @@ package com.keanequibilan.screenswipe.viewholder
 
 import android.view.View
 import androidx.appcompat.widget.AppCompatTextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.keanequibilan.screenswipe.R
 import com.keanequibilan.screenswipe.model.BackCardItem
@@ -23,11 +24,12 @@ internal class FrontCardItemViewHolder(
     itemView: View,
     onItemClick: ((Int) -> Unit)
 ) : CardItemViewHolder(itemView) {
+    private val cvCard = itemView.findViewById<CardView>(R.id.cv_card)
     private val tvMessage = itemView.findViewById<AppCompatTextView>(R.id.tv_message)
     private var frontCardItem: FrontCardItem? = null
 
     init {
-        itemView.setOnClickListener { frontCardItem?.let { onItemClick(it.id) } }
+        cvCard.setOnClickListener { frontCardItem?.let { onItemClick(it.id) } }
     }
 
     override fun bind(item: CardItem?) = (item as? FrontCardItem)?.let {
@@ -43,11 +45,12 @@ internal class BackCardItemViewHolder(
     itemView: View,
     onItemClick: ((Int) -> Unit)
 ) : CardItemViewHolder(itemView) {
+    private val cvCard = itemView.findViewById<CardView>(R.id.cv_card)
     private val tvMessage = itemView.findViewById<AppCompatTextView>(R.id.tv_message)
     private var backCardItem: BackCardItem? = null
 
     init {
-        itemView.setOnClickListener { backCardItem?.let { onItemClick(it.id) } }
+        cvCard.setOnClickListener { backCardItem?.let { onItemClick(it.id) } }
     }
 
     override fun bind(item: CardItem?) = (item as? BackCardItem)?.let {
