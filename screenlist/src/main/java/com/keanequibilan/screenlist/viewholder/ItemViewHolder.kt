@@ -2,8 +2,7 @@ package com.keanequibilan.screenlist.viewholder
 
 import android.view.View
 import androidx.appcompat.widget.AppCompatTextView
-import androidx.cardview.widget.CardView
-import androidx.core.content.ContextCompat
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.keanequibilan.screenlist.R
 import com.keanequibilan.screenlist.model.CardListItem
@@ -19,22 +18,19 @@ internal class CardListItemViewHolder(
     onLongPress: ((item: CardListItem) -> Unit),
     type: ViewHolderType
 ) : ItemViewHolder(itemView) {
-    private val cvCard: CardView = itemView.findViewById(R.id.cv_card)
+    private val clContainer: ConstraintLayout = itemView.findViewById(R.id.cl_container)
     private val tvName: AppCompatTextView = itemView.findViewById(R.id.tv_name)
     private val tvCorrect: AppCompatTextView = itemView.findViewById(R.id.tv_correct)
     private val tvIncorrect: AppCompatTextView = itemView.findViewById(R.id.tv_incorrect)
     private var cardListItem: CardListItem? = null
 
     init {
-        cvCard.setCardBackgroundColor(
-            ContextCompat.getColor(
-                itemView.context,
-                when (type) {
-                    ViewHolderType.GOOD -> R.color.design_default_color_primary
-                    ViewHolderType.NEUTRAL -> android.R.color.darker_gray
-                    ViewHolderType.BAD -> android.R.color.holo_red_dark
-                }
-            )
+        clContainer.setBackgroundResource(
+            when (type) {
+                ViewHolderType.GOOD -> R.drawable.list_item_background_good
+                ViewHolderType.NEUTRAL -> R.drawable.list_item_background_neutral
+                ViewHolderType.BAD -> R.drawable.list_item_background_bad
+            }
         )
         itemView.setOnClickListener {
             cardListItem?.let(onClick)
