@@ -10,16 +10,6 @@ internal enum class CardItemType(val intValue: Int) {
     BACK(1)
 }
 
-private class Delegate {
-    operator fun getValue(thisRef: Any?, property: KProperty<*>): Int {
-        return 0
-    }
-
-    operator fun setValue(thisRef: Any?, property: KProperty<*>, value: Int) {
-
-    }
-}
-
 internal sealed class CardItem(
     type: CardItemType
 ) {
