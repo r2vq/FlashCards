@@ -19,9 +19,21 @@
         android:contentDescription="@string/incorrect"
         android:src="@drawable/ic_highlight_off"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/btn_correct"
+        app:layout_constraintEnd_toStartOf="@id/btn_unsure"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:tint="@android:color/holo_red_dark" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btn_unsure"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_margin="16dp"
+        android:contentDescription="@string/unsure"
+        android:src="@drawable/ic_help_outline_black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_correct"
+        app:layout_constraintStart_toEndOf="@id/btn_incorrect" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/btn_correct"
@@ -33,6 +45,6 @@
         android:tint="@android:color/holo_green_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btn_incorrect" />
+        app:layout_constraintStart_toEndOf="@id/btn_unsure" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

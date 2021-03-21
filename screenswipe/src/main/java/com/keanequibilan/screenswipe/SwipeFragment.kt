@@ -39,6 +39,14 @@ class SwipeFragment : Fragment(), CardStackListener {
                 cardStackLayoutManager.setSwipeAnimationSetting(setting)
                 svCards.swipe()
             }
+        view.findViewById<AppCompatImageView>(R.id.btn_unsure)
+            .setOnClickListener {
+                val setting = SwipeAnimationSetting.Builder()
+                    .setDirection(Direction.Top)
+                    .build()
+                cardStackLayoutManager.setSwipeAnimationSetting(setting)
+                svCards.swipe()
+            }
         view.findViewById<AppCompatImageView>(R.id.btn_correct)
             .setOnClickListener {
                 val setting = SwipeAnimationSetting.Builder()
