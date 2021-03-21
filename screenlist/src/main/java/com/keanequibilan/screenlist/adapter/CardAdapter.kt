@@ -20,7 +20,7 @@ internal class CardAdapter : PagedListAdapter<ListItem, ItemViewHolder>(ListItem
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder =
         when (viewType) {
             ListItemType.cardListItem -> CardListItemViewHolder(
-                parent.inflateChild(R.layout.list_item_card)
+                parent.inflateChild(R.layout.list_item)
             ) { item -> onItemClickListener?.invoke(item) }
             ListItemType.unknown -> throw IllegalArgumentException("Unknown card type")
             else -> throw IllegalArgumentException("Unmatched card type")
