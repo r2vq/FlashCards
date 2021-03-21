@@ -13,6 +13,9 @@ import com.keanequibilan.screenlist.model.ListItemType.DANGER_LIST_ITEM
 import com.keanequibilan.screenlist.model.ListItemType.NEUTRAL_LIST_ITEM
 import com.keanequibilan.screenlist.model.ListItemType.UNKNOWN
 import com.keanequibilan.screenlist.viewholder.CardListItemViewHolder
+import com.keanequibilan.screenlist.viewholder.CardListItemViewHolder.ViewHolderType.BAD
+import com.keanequibilan.screenlist.viewholder.CardListItemViewHolder.ViewHolderType.GOOD
+import com.keanequibilan.screenlist.viewholder.CardListItemViewHolder.ViewHolderType.NEUTRAL
 import com.keanequibilan.screenlist.viewholder.ItemViewHolder
 
 internal class CardAdapter : PagedListAdapter<ListItem, ItemViewHolder>(ListItemDiffUtil) {
@@ -22,28 +25,17 @@ internal class CardAdapter : PagedListAdapter<ListItem, ItemViewHolder>(ListItem
     override fun getItemViewType(position: Int): Int =
         getItem(position)?.type ?: UNKNOWN.value
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder =
-        when (ListItemType.enumFor(viewType)) {
-            CARD_LIST_ITEM -> CardListItemViewHolder(
-                itemView = parent.inflateChild(R.layout.list_item),
-                onClick = { item -> onItemClickListener?.invoke(item) },
-                onLongPress = { item -> onItemLongPressListener?.invoke(item) },
-                type = CardListItemViewHolder.ViewHolderType.GOOD
-            )
-            NEUTRAL_LIST_ITEM -> CardListItemViewHolder(
-                itemView = parent.inflateChild(R.layout.list_item),
-                onClick = { item -> onItemClickListener?.invoke(item) },
-                onLongPress = { item -> onItemLongPressListener?.invoke(item) },
-                type = CardListItemViewHolder.ViewHolderType.NEUTRAL
-            )
-            DANGER_LIST_ITEM -> CardListItemViewHolder(
-                itemView = parent.inflateChild(R.layout.list_item),
-                onClick = { item -> onItemClickListener?.invoke(item) },
-                onLongPress = { item -> onItemLongPressListener?.invoke(item) },
-                type = CardListItemViewHolder.ViewHolderType.BAD
-            )
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = CardListItemViewHolder(
+        itemView = parent.inflateChild(R.layout.list_item),
+        onClick = { item -> onItemClickListener?.invoke(item) },
+        onLongPress = { item -> onItemLongPressListener?.invoke(item) },
+        type = when (ListItemType.enumFor(viewType)) {
+            CARD_LIST_ITEM -> GOOD
+            NEUTRAL_LIST_ITEM -> NEUTRAL
+            DANGER_LIST_ITEM -> BAD
             else -> throw IllegalArgumentException("Unmatched card type")
         }
+    )
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.bind(getItem(position))
