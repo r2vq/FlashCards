@@ -1,11 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <com.yuyakaido.android.cardstackview.CardStackView
         android:id="@+id/sv_cards"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        tools:listitem="@layout/card_item_front" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btn_incorrect"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_margin="16dp"
+        android:contentDescription="@string/incorrect"
+        android:src="@drawable/ic_highlight_off"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_correct"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tint="@android:color/holo_red_dark" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btn_correct"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_margin="16dp"
+        android:contentDescription="@string/correct"
+        android:src="@drawable/ic_check_circle_outline"
+        android:tint="@android:color/holo_green_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_incorrect" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

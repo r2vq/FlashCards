@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.fragment.app.Fragment
 import com.keanequibilan.screenswipe.adapter.CardAdapter
 import com.keanequibilan.screenswipe.viewmodel.SwipeViewModel
@@ -11,6 +12,7 @@ import com.yuyakaido.android.cardstackview.CardStackLayoutManager
 import com.yuyakaido.android.cardstackview.CardStackListener
 import com.yuyakaido.android.cardstackview.CardStackView
 import com.yuyakaido.android.cardstackview.Direction
+import com.yuyakaido.android.cardstackview.SwipeAnimationSetting
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -28,6 +30,24 @@ class SwipeFragment : Fragment(), CardStackListener {
         adapter.setOnItemClickListener { id -> swipeViewModel.toggleItem(id) }
 
         val svCards = view.findViewById<CardStackView>(R.id.sv_cards)
+
+        view.findViewById<AppCompatImageView>(R.id.btn_incorrect)
+            .setOnClickListener {
+                val setting = SwipeAnimationSetting.Builder()
+                    .setDirection(Direction.Left)
+                    .build()
+                cardStackLayoutManager.setSwipeAnimationSetting(setting)
+                svCards.swipe()
+            }
+        view.findViewById<AppCompatImageView>(R.id.btn_correct)
+            .setOnClickListener {
+                val setting = SwipeAnimationSetting.Builder()
+                    .setDirection(Direction.Right)
+                    .build()
+                cardStackLayoutManager.setSwipeAnimationSetting(setting)
+                svCards.swipe()
+            }
+
         cardStackLayoutManager = CardStackLayoutManager(context, this)
         svCards.layoutManager = cardStackLayoutManager
         svCards.adapter = adapter
