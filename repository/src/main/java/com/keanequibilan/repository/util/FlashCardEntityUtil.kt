@@ -8,6 +8,7 @@ internal fun FlashCardEntity?.toLocalFlashCard() = this
     ?.let {
         LocalFlashCard(
             id = it,
-            name = name
+            front = front,
+            back = back
         )
     }

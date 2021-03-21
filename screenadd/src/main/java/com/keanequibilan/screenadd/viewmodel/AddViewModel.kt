@@ -8,9 +8,9 @@ import kotlinx.coroutines.launch
 internal class AddViewModel(
     private val repo: Repository
 ) : ViewModel() {
-    fun createCard(name: String) {
+    fun createCard(front: String, back: String) {
         viewModelScope.launch {
-            repo.createCard(name)
+            repo.createCard(front, back)
         }
     }
 }

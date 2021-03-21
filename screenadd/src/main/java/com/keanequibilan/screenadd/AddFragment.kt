@@ -33,7 +33,7 @@ class AddFragment : Fragment() {
             val back = tilBack.getTextOrNull()
 
             if (front != null && back != null) {
-                addViewModel.createCard(front)
+                addViewModel.createCard(front, back)
 
                 findNavController(this).popBackStack()
                 imm?.hideSoftInputFromWindow(view.windowToken, 0)

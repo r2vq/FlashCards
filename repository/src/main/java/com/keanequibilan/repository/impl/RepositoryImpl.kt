@@ -25,7 +25,12 @@ internal class RepositoryImpl(
         .getFlashCardPaged()
         .map(FlashCardEntity?::toLocalFlashCard)
 
-    override suspend fun createCard(name: String) = db
+    override suspend fun createCard(front: String, back: String) = db
         .flashCardDao()
-        .insertAll(FlashCardEntity(name = name))
+        .insertAll(
+            FlashCardEntity(
+                front = front,
+                back = back
+            )
+        )
 }

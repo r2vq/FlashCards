@@ -13,6 +13,7 @@ interface Repository {
     fun getCardsPaged(): DataSource.Factory<Int, LocalFlashCard>
 
     suspend fun createCard(
-        name: String
+        front: String,
+        back: String
     )
 }
