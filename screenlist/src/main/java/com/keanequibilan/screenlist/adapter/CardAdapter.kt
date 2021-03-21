@@ -8,6 +8,9 @@ import com.keanequibilan.screenlist.diffutil.ListItemDiffUtil
 import com.keanequibilan.screenlist.model.CardListItem
 import com.keanequibilan.screenlist.model.ListItem
 import com.keanequibilan.screenlist.model.ListItemType
+import com.keanequibilan.screenlist.model.ListItemType.CARD_LIST_ITEM
+import com.keanequibilan.screenlist.model.ListItemType.DANGER_LIST_ITEM
+import com.keanequibilan.screenlist.model.ListItemType.UNKNOWN
 import com.keanequibilan.screenlist.viewholder.CardListItemViewHolder
 import com.keanequibilan.screenlist.viewholder.ItemViewHolder
 
@@ -16,16 +19,20 @@ internal class CardAdapter : PagedListAdapter<ListItem, ItemViewHolder>(ListItem
     private var onItemLongPressListener: ((item: CardListItem) -> Unit)? = null
 
     override fun getItemViewType(position: Int): Int =
-        getItem(position)?.type ?: ListItemType.unknown
+        getItem(position)?.type ?: UNKNOWN.value
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder =
-        when (viewType) {
-            ListItemType.cardListItem -> CardListItemViewHolder(
+        when (ListItemType.enumFor(viewType)) {
+            CARD_LIST_ITEM -> CardListItemViewHolder(
                 itemView = parent.inflateChild(R.layout.list_item),
                 onClick = { item -> onItemClickListener?.invoke(item) },
                 onLongPress = { item -> onItemLongPressListener?.invoke(item) }
             )
-            ListItemType.unknown -> throw IllegalArgumentException("Unknown card type")
+            DANGER_LIST_ITEM -> CardListItemViewHolder(
+                itemView = parent.inflateChild(R.layout.danger_list_item),
+                onClick = { item -> onItemClickListener?.invoke(item) },
+                onLongPress = { item -> onItemLongPressListener?.invoke(item) }
+            )
             else -> throw IllegalArgumentException("Unmatched card type")
         }
 

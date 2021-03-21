@@ -1,13 +1,25 @@
 package com.keanequibilan.screenlist.model
 
-internal object ListItemType {
-    const val unknown = -1
-    const val cardListItem = 0
+import com.keanequibilan.screenlist.model.ListItemType.CARD_LIST_ITEM
+import com.keanequibilan.screenlist.model.ListItemType.DANGER_LIST_ITEM
+
+internal enum class ListItemType(val value: Int) {
+    UNKNOWN(-1),
+    CARD_LIST_ITEM(0),
+    DANGER_LIST_ITEM(1);
+
+    companion object {
+        fun enumFor(value: Int): ListItemType = values()
+            .firstOrNull { it.value == value }
+            ?: UNKNOWN
+    }
 }
 
-internal sealed class ListItem {
+internal sealed class ListItem(
+    type: ListItemType
+) {
     abstract val id: Int
-    abstract val type: Int
+    val type: Int = type.value
 }
 
 internal data class CardListItem(
@@ -15,7 +27,4 @@ internal data class CardListItem(
     val name: String,
     val correct: Int,
     val incorrect: Int
-) : ListItem() {
-    override val type = ListItemType.cardListItem
-}
-
+) : ListItem(if (correct < incorrect) DANGER_LIST_ITEM else CARD_LIST_ITEM)
