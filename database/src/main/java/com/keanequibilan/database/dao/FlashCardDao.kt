@@ -19,4 +19,10 @@ interface FlashCardDao {
 
     @Query("DELETE FROM FlashCardEntity WHERE `id` = :id")
     fun delete(id: Int)
+
+    @Query("UPDATE FlashCardEntity SET `correctCount` = `correctCount` + 1 WHERE `id` = :id")
+    fun incrementCorrect(id: Int)
+
+    @Query("UPDATE FlashCardEntity SET `incorrectCount` = `incorrectCount` + 1 WHERE `id` = :id")
+    fun incrementIncorrect(id: Int)
 }

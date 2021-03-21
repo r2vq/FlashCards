@@ -25,11 +25,21 @@ internal class RepositoryImpl(
         .insertAll(
             FlashCardEntity(
                 front = front,
-                back = back
+                back = back,
+                correctCount = 0,
+                incorrectCount = 0
             )
         )
 
     override suspend fun deleteCard(id: Int) = db
         .flashCardDao()
         .delete(id)
+
+    override suspend fun incrementCorrect(id: Int) = db
+        .flashCardDao()
+        .incrementCorrect(id)
+
+    override suspend fun incrementIncorrect(id: Int) = db
+        .flashCardDao()
+        .incrementIncorrect(id)
 }

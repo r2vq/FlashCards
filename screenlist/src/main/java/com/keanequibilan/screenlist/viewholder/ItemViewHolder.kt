@@ -16,6 +16,8 @@ internal class CardListItemViewHolder(
     onClick: ((item: CardListItem) -> Unit)
 ) : ItemViewHolder(itemView) {
     private val tvName: AppCompatTextView = itemView.findViewById(R.id.tv_name)
+    private val tvCorrect: AppCompatTextView = itemView.findViewById(R.id.tv_correct)
+    private val tvIncorrect: AppCompatTextView = itemView.findViewById(R.id.tv_incorrect)
     private var cardListItem: CardListItem? = null
 
     init {
@@ -28,9 +30,13 @@ internal class CardListItemViewHolder(
         (item as? CardListItem)?.let {
             cardListItem = it
             tvName.text = it.name
+            tvCorrect.text = itemView.context.getString(R.string.correct, it.correct)
+            tvIncorrect.text = itemView.context.getString(R.string.incorrect, it.incorrect)
         } ?: run {
             cardListItem = null
             tvName.text = ""
+            tvCorrect.text = ""
+            tvIncorrect.text = ""
         }
     }
 }

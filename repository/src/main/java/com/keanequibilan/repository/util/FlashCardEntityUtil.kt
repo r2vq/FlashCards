@@ -9,6 +9,8 @@ internal fun FlashCardEntity?.toLocalFlashCard() = this
         LocalFlashCard(
             id = it,
             front = front,
-            back = back
+            back = back,
+            correct = correctCount,
+            incorrect = incorrectCount
         )
     }

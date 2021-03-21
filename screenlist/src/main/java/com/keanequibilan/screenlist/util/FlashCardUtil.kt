@@ -6,5 +6,7 @@ import com.keanequibilan.screenlist.model.ListItem
 
 internal fun LocalFlashCard.toListItem(): ListItem = CardListItem(
     id = id,
-    name = front
+    name = front,
+    correct = correct,
+    incorrect = incorrect
 )

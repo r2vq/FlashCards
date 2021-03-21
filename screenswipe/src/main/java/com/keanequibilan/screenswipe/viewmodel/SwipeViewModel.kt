@@ -9,11 +9,13 @@ import com.keanequibilan.screenswipe.model.BackCardItem
 import com.keanequibilan.screenswipe.model.CardItem
 import com.keanequibilan.screenswipe.model.FrontCardItem
 import com.keanequibilan.screenswipe.util.toCardItem
+import com.yuyakaido.android.cardstackview.Direction
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.util.*
 
 internal class SwipeViewModel(
-    repo: Repository,
+    private val repo: Repository,
     random: Random
 ) : ViewModel() {
     private val mutableListItems: MutableLiveData<List<CardItem>> = MutableLiveData()
@@ -49,5 +51,25 @@ internal class SwipeViewModel(
                 }
             }
         }?.let { mutableListItems.postValue(it) }
+    }
+
+    fun onSwipe(
+        id: Int,
+        direction: Direction?
+    ) = viewModelScope.launch(Dispatchers.IO) {
+        when (direction) {
+            Direction.Right -> {
+                repo.incrementCorrect(id)
+            }
+            Direction.Left -> {
+                repo.incrementIncorrect(id)
+            }
+            Direction.Top -> {
+                /* no-op */
+            }
+            Direction.Bottom -> {
+                /* no-op */
+            }
+        }
     }
 }

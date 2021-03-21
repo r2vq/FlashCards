@@ -14,4 +14,8 @@ interface Repository {
     )
 
     suspend fun deleteCard(id: Int)
+
+    suspend fun incrementCorrect(id: Int)
+
+    suspend fun incrementIncorrect(id: Int)
 }
