@@ -33,11 +33,16 @@ internal class CardItemViewHolder(
         cvCard.setOnClickListener(frontClickListener)
     }
 
-    fun bind(item: CardItem?) = item?.let {
-        tvMessage.text = item.message
-        tvOtherMessage.text = item.otherMessage
-    } ?: run {
-        tvMessage.text = ""
-        tvOtherMessage.text = ""
+    fun bind(item: CardItem?) {
+        clFront.visibility = View.VISIBLE
+        clBack.visibility = View.INVISIBLE
+
+        item?.let {
+            tvMessage.text = item.message
+            tvOtherMessage.text = item.otherMessage
+        } ?: run {
+            tvMessage.text = ""
+            tvOtherMessage.text = ""
+        }
     }
 }
