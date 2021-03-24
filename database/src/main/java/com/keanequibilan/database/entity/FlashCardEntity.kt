@@ -7,7 +7,5 @@ import androidx.room.PrimaryKey
 data class FlashCardEntity(
     @PrimaryKey(autoGenerate = true) val id: Int? = null,
     val front: String,
-    val back: String,
-    val correctCount: Int,
-    val incorrectCount: Int
+    val back: String
 )

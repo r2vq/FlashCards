@@ -23,7 +23,7 @@ internal class ListViewModel(
         repo.deleteCard(id)
     }
 
-    fun clearCounts(id: Int) = viewModelScope.launch(Dispatchers.IO) {
-        repo.clearCounts(id)
+    fun clearCounts() = viewModelScope.launch(Dispatchers.IO) {
+        repo.createSession()
     }
 }

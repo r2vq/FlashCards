@@ -28,7 +28,7 @@ class ListFragment : Fragment() {
                 .Builder(context)
                 .setMessage(getString(R.string.clear_counts_message, item.name))
                 .setPositiveButton("Yes") { _, _ ->
-                    listViewModel.clearCounts(item.id)
+                    listViewModel.clearCounts()
                 }
                 .setNegativeButton("No") { _, _ -> }
                 .create()

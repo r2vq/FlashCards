@@ -36,16 +36,16 @@ internal class SwipeViewModel(
     ) = viewModelScope.launch(Dispatchers.IO) {
         when (direction) {
             Direction.Right -> {
-                repo.incrementCorrect(id)
+                repo.updateCardSession(id, correct = 1)
             }
             Direction.Left -> {
-                repo.incrementIncorrect(id)
+                repo.updateCardSession(id, incorrect = 1)
             }
             Direction.Top -> {
-                /* no-op */
+                repo.updateCardSession(id, skip = 1)
             }
             Direction.Bottom -> {
-                /* no-op */
+                repo.updateCardSession(id, skip = 1)
             }
         }
     }
