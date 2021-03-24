@@ -11,6 +11,7 @@ import Dependencies.navigationFragment
 import Dependencies.navigationUi
 import Dependencies.paging
 import Dependencies.stdLib
+import Dependencies.stetho
 
 object AppBuildModule : BuildModule() {
     override val plugins = listOf(
@@ -38,7 +39,8 @@ object AppBuildModule : BuildModule() {
         multidex,
         navigationFragment,
         navigationUi,
-        paging
+        paging,
+        stetho
     )
 
     override val kapts: List<String> = listOf(

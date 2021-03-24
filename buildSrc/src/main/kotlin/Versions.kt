@@ -22,6 +22,7 @@ object Versions {
 
     // database
     const val room = "2.2.6"
+    const val stetho = "1.5.1"
 
     // dependency injection
     const val koin = "2.2.2"
