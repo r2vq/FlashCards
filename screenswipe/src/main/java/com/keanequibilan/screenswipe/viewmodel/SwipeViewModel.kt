@@ -5,9 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.keanequibilan.repository.Repository
-import com.keanequibilan.screenswipe.model.BackCardItem
 import com.keanequibilan.screenswipe.model.CardItem
-import com.keanequibilan.screenswipe.model.FrontCardItem
 import com.keanequibilan.screenswipe.util.toCardItem
 import com.yuyakaido.android.cardstackview.Direction
 import kotlinx.coroutines.Dispatchers
@@ -30,27 +28,6 @@ internal class SwipeViewModel(
                 .apply { shuffle(random) }
                 .let { mutableListItems.postValue(it) }
         }
-    }
-
-    fun toggleItem(id: Int) {
-        mutableListItems.value?.map { cardItem ->
-            cardItem.takeUnless { it.id == id } ?: when (cardItem) {
-                is FrontCardItem -> {
-                    BackCardItem(
-                        id = cardItem.id,
-                        message = cardItem.otherMessage,
-                        otherMessage = cardItem.message
-                    )
-                }
-                is BackCardItem -> {
-                    FrontCardItem(
-                        id = cardItem.id,
-                        message = cardItem.otherMessage,
-                        otherMessage = cardItem.message
-                    )
-                }
-            }
-        }?.let { mutableListItems.postValue(it) }
     }
 
     fun onSwipe(

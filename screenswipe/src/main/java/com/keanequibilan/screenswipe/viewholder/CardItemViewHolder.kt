@@ -3,61 +3,41 @@ package com.keanequibilan.screenswipe.viewholder
 import android.view.View
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.cardview.widget.CardView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.keanequibilan.screenswipe.R
-import com.keanequibilan.screenswipe.model.BackCardItem
+import com.keanequibilan.screenswipe.animator.FlipAnimator
 import com.keanequibilan.screenswipe.model.CardItem
-import com.keanequibilan.screenswipe.model.FrontCardItem
 
-internal abstract class CardItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    abstract fun bind(item: CardItem?)
-}
-
-internal class UnknownViewHolder(itemView: View) :
-    CardItemViewHolder(itemView) {
-    override fun bind(item: CardItem?) {
-        // no-op
-    }
-}
-
-internal class FrontCardItemViewHolder(
-    itemView: View,
-    onItemClick: ((Int) -> Unit)
-) : CardItemViewHolder(itemView) {
+internal class CardItemViewHolder(
+    itemView: View
+) : RecyclerView.ViewHolder(itemView) {
     private val cvCard = itemView.findViewById<CardView>(R.id.cv_card)
+    private val clFront = itemView.findViewById<ConstraintLayout>(R.id.cl_front)
+    private val clBack = itemView.findViewById<ConstraintLayout>(R.id.cl_back)
     private val tvMessage = itemView.findViewById<AppCompatTextView>(R.id.tv_message)
-    private var frontCardItem: FrontCardItem? = null
+    private val tvOtherMessage = itemView.findViewById<AppCompatTextView>(R.id.tv_other_message)
+
+    private val animator = FlipAnimator(target = itemView, duration = 400)
+
+    private val frontClickListener: (v: View) -> Unit = {
+        cvCard.setOnClickListener(backClickListener)
+        animator.flip(clFront, clBack)
+    }
+    private val backClickListener: (v: View) -> Unit = {
+        cvCard.setOnClickListener(frontClickListener)
+        animator.flip(clBack, clFront)
+    }
 
     init {
-        cvCard.setOnClickListener { frontCardItem?.let { onItemClick(it.id) } }
+        cvCard.setOnClickListener(frontClickListener)
     }
 
-    override fun bind(item: CardItem?) = (item as? FrontCardItem)?.let {
-        frontCardItem = it
+    fun bind(item: CardItem?) = item?.let {
         tvMessage.text = item.message
+        tvOtherMessage.text = item.otherMessage
     } ?: run {
-        frontCardItem = null
         tvMessage.text = ""
-    }
-}
-
-internal class BackCardItemViewHolder(
-    itemView: View,
-    onItemClick: ((Int) -> Unit)
-) : CardItemViewHolder(itemView) {
-    private val cvCard = itemView.findViewById<CardView>(R.id.cv_card)
-    private val tvMessage = itemView.findViewById<AppCompatTextView>(R.id.tv_message)
-    private var backCardItem: BackCardItem? = null
-
-    init {
-        cvCard.setOnClickListener { backCardItem?.let { onItemClick(it.id) } }
-    }
-
-    override fun bind(item: CardItem?) = (item as? BackCardItem)?.let {
-        backCardItem = it
-        tvMessage.text = item.message
-    } ?: run {
-        backCardItem = null
-        tvMessage.text = ""
+        tvOtherMessage.text = ""
     }
 }
