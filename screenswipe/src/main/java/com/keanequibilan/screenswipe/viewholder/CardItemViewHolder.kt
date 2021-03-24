@@ -6,7 +6,6 @@ import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.keanequibilan.screenswipe.R
-import com.keanequibilan.screenswipe.animator.FlipAnimator
 import com.keanequibilan.screenswipe.model.CardItem
 
 internal class CardItemViewHolder(
@@ -18,15 +17,15 @@ internal class CardItemViewHolder(
     private val tvMessage = itemView.findViewById<AppCompatTextView>(R.id.tv_message)
     private val tvOtherMessage = itemView.findViewById<AppCompatTextView>(R.id.tv_other_message)
 
-    private val animator = FlipAnimator(target = itemView, duration = 400)
-
     private val frontClickListener: (v: View) -> Unit = {
         cvCard.setOnClickListener(backClickListener)
-        animator.flip(clFront, clBack)
+        clFront.visibility = View.INVISIBLE
+        clBack.visibility = View.VISIBLE
     }
     private val backClickListener: (v: View) -> Unit = {
         cvCard.setOnClickListener(frontClickListener)
-        animator.flip(clBack, clFront)
+        clFront.visibility = View.VISIBLE
+        clBack.visibility = View.INVISIBLE
     }
 
     init {
