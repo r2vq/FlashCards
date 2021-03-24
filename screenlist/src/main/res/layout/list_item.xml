@@ -15,45 +15,63 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:padding="20dp"
+            tools:background="@drawable/list_item_background_good">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="40dp"
                 android:maxLines="1"
                 android:textColor="@android:color/white"
                 android:textSize="40sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/sp_middle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="@tools:sample/lorem" />
+
+            <Space
+                android:id="@+id/sp_middle"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                app:layout_constraintBottom_toTopOf="@id/tv_back"
+                app:layout_constraintTop_toBottomOf="@id/tv_name" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_incorrect"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="@id/tv_back"
+                app:layout_constraintEnd_toStartOf="@id/tv_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_back"
+                tools:text="Incorrect: 1" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/tv_correct"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_name"
-                tools:text="Incorrect: 1" />
+                app:layout_constraintStart_toEndOf="@id/tv_incorrect"
+                app:layout_constraintTop_toBottomOf="@id/sp_middle"
+                tools:text="@tools:sample/lorem" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_correct"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/white"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/tv_back"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/tv_incorrect"
-                app:layout_constraintTop_toBottomOf="@id/tv_name"
+                app:layout_constraintStart_toEndOf="@id/tv_back"
+                app:layout_constraintTop_toTopOf="@id/tv_back"
                 tools:text="Correct: 1" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 

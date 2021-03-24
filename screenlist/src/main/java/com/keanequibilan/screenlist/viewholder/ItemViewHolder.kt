@@ -21,6 +21,7 @@ internal class CardListItemViewHolder(
     private val clContainer: ConstraintLayout = itemView.findViewById(R.id.cl_container)
     private val tvName: AppCompatTextView = itemView.findViewById(R.id.tv_name)
     private val tvCorrect: AppCompatTextView = itemView.findViewById(R.id.tv_correct)
+    private val tvBack: AppCompatTextView = itemView.findViewById(R.id.tv_back)
     private val tvIncorrect: AppCompatTextView = itemView.findViewById(R.id.tv_incorrect)
     private var cardListItem: CardListItem? = null
 
@@ -45,11 +46,13 @@ internal class CardListItemViewHolder(
             cardListItem = it
             tvName.text = it.name
             tvCorrect.text = itemView.context.getString(R.string.correct, it.correct)
+            tvBack.text = it.back
             tvIncorrect.text = itemView.context.getString(R.string.incorrect, it.incorrect)
         } ?: run {
             cardListItem = null
             tvName.text = ""
             tvCorrect.text = ""
+            tvBack.text = ""
             tvIncorrect.text = ""
         }
     }

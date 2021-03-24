@@ -27,6 +27,7 @@ internal sealed class ListItem(
 internal data class CardListItem(
     override val id: Int,
     val name: String,
+    val back: String,
     val correct: Int,
     val incorrect: Int
 ) : ListItem(
