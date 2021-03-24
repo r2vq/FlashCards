@@ -8,7 +8,9 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.keanequibilan.screenlist.adapter.CardAdapter
 import com.keanequibilan.screenlist.viewmodel.ListViewModel
@@ -27,7 +29,9 @@ class ListFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_list, container, false)
 
         adapter.setOnItemClickListener {
-            // TODO open card details page
+            val args = bundleOf("cardId" to it.id)
+            findNavController(this@ListFragment)
+                .navigate(R.id.action_listFragment_to_detailsFragment, args)
         }
 
         adapter.setOnItemLongPressListener { item ->
