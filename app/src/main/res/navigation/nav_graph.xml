@@ -5,12 +5,6 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/swipeFragment">
     <fragment
-        android:id="@+id/listFragment"
-        android:name="com.keanequibilan.screenlist.ListFragment"
-        android:label="ListFragment"
-        tools:layout="@layout/fragment_list" />
-
-    <fragment
         android:id="@+id/swipeFragment"
         android:name="com.keanequibilan.screenswipe.SwipeFragment"
         android:label="SwipeFragment"
@@ -21,4 +15,6 @@
         android:name="com.keanequibilan.screenadd.AddFragment"
         android:label="AddFragment"
         tools:layout="@layout/fragment_add" />
+
+    <include app:graph="@navigation/nav_screen_list" />
 </navigation>
