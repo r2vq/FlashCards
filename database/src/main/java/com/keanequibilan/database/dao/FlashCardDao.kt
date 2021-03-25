@@ -10,6 +10,9 @@ interface FlashCardDao {
     @Query("SELECT * FROM FlashCardEntity")
     suspend fun getAll(): List<FlashCardEntity>
 
+    @Query("SELECT * FROM FlashCardEntity WHERE `id` = :id")
+    suspend fun get(id: Int): FlashCardEntity?
+
     @Insert
     suspend fun insertAll(vararg card: FlashCardEntity)
 

@@ -17,7 +17,7 @@ import com.keanequibilan.screenlist.viewmodel.ListViewModel
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class ListFragment : Fragment() {
+internal class ListFragment : Fragment() {
 
     private val adapter: CardAdapter by inject()
     private val listViewModel: ListViewModel by viewModel()

@@ -11,6 +11,9 @@ interface CardSessionDao {
     @Query("SELECT * FROM CardSessionEntity WHERE `cardId` = :cardId AND `sessionId` = :sessionId")
     suspend fun getCardSession(cardId: Int, sessionId: Int): CardSessionEntity?
 
+    @Query("SELECT * FROM CardSessionEntity WHERE `cardId` = :cardId")
+    suspend fun getSessionsForCard(cardId: Int): List<CardSessionEntity>
+
     @Insert
     suspend fun insertAll(vararg cardSession: CardSessionEntity)
 

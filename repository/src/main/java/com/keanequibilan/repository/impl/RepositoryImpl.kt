@@ -7,8 +7,10 @@ import com.keanequibilan.database.entity.CardSessionView
 import com.keanequibilan.database.entity.FlashCardEntity
 import com.keanequibilan.database.entity.SessionEntity
 import com.keanequibilan.repository.Repository
+import com.keanequibilan.repository.model.LocalCardDetails
 import com.keanequibilan.repository.model.LocalFlashCard
 import com.keanequibilan.repository.model.LocalSwipeCard
+import com.keanequibilan.repository.util.toLocalDetails
 import com.keanequibilan.repository.util.toLocalFlashCard
 
 internal class RepositoryImpl(
@@ -18,6 +20,18 @@ internal class RepositoryImpl(
         .flashCardDao()
         .getAll()
         .mapNotNull(FlashCardEntity?::toLocalFlashCard)
+
+    override suspend fun getCardDetails(cardId: Int): LocalCardDetails? {
+        val card = db
+            .flashCardDao()
+            .get(cardId)
+
+        val sessions = db
+            .cardSessionDao()
+            .getSessionsForCard(cardId)
+
+        return toLocalDetails(card, sessions)
+    }
 
     override fun getCardsPaged(): DataSource.Factory<Int, LocalFlashCard> = db
         .cardSessionViewDao()

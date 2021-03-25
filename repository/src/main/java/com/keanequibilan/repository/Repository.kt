@@ -1,11 +1,14 @@
 package com.keanequibilan.repository
 
 import androidx.paging.DataSource
+import com.keanequibilan.repository.model.LocalCardDetails
 import com.keanequibilan.repository.model.LocalFlashCard
 import com.keanequibilan.repository.model.LocalSwipeCard
 
 interface Repository {
     suspend fun getCards(): List<LocalSwipeCard>
+
+    suspend fun getCardDetails(id: Int): LocalCardDetails?
 
     fun getCardsPaged(): DataSource.Factory<Int, LocalFlashCard>
 
