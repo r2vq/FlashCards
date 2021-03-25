@@ -3,6 +3,9 @@ package com.keanequibilan.screenlist
 import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -23,26 +26,18 @@ class ListFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_list, container, false)
 
-        adapter.setOnItemClickListener { item ->
-            AlertDialog
-                .Builder(context)
-                .setMessage(getString(R.string.clear_counts_message, item.name))
-                .setPositiveButton("Yes") { _, _ ->
-                    listViewModel.clearCounts()
-                }
-                .setNegativeButton("No") { _, _ -> }
-                .create()
-                .show()
+        adapter.setOnItemClickListener {
+            // TODO open card details page
         }
 
         adapter.setOnItemLongPressListener { item ->
             AlertDialog
                 .Builder(context)
                 .setMessage(getString(R.string.delete_message, item.name))
-                .setPositiveButton("Yes") { _, _ ->
+                .setPositiveButton(R.string.yes) { _, _ ->
                     listViewModel.deleteItem(item.id)
                 }
-                .setNegativeButton("No") { _, _ -> }
+                .setNegativeButton(R.string.no) { _, _ -> }
                 .create()
                 .show()
         }
@@ -52,6 +47,31 @@ class ListFragment : Fragment() {
 
         listViewModel.listItems.observe(viewLifecycleOwner) { items -> adapter.submitList(items) }
 
+        setHasOptionsMenu(true)
+
         return view
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.screenlist_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.menu_item_new_session -> {
+                AlertDialog
+                    .Builder(context)
+                    .setMessage(getString(R.string.new_session_message))
+                    .setPositiveButton(R.string.yes) { _, _ ->
+                        listViewModel.clearCounts()
+                    }
+                    .setNegativeButton(R.string.no) { _, _ -> }
+                    .create()
+                    .show()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }
