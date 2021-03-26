@@ -5,11 +5,11 @@ import com.keanequibilan.database.DatabaseClient
 import com.keanequibilan.database.model.DbCard
 import com.keanequibilan.database.model.DbCurrentCardSession
 import com.keanequibilan.repository.Repository
+import com.keanequibilan.repository.impl.util.toLocalDetails
+import com.keanequibilan.repository.impl.util.toLocalFlashCard
 import com.keanequibilan.repository.model.LocalCardDetails
 import com.keanequibilan.repository.model.LocalFlashCard
 import com.keanequibilan.repository.model.LocalSwipeCard
-import com.keanequibilan.repository.util.toLocalDetails
-import com.keanequibilan.repository.util.toLocalFlashCard
 
 internal class RepositoryImpl(
     private val db: DatabaseClient

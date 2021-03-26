@@ -1,4 +1,4 @@
-package com.keanequibilan.repository.util
+package com.keanequibilan.repository.impl.util
 
 import com.keanequibilan.database.model.DbCard
 import com.keanequibilan.database.model.DbCardSession

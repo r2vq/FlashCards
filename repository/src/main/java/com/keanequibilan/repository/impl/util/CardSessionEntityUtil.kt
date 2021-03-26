@@ -1,4 +1,4 @@
-package com.keanequibilan.repository.util
+package com.keanequibilan.repository.impl.util
 
 import com.keanequibilan.database.model.DbCurrentCardSession
 import com.keanequibilan.repository.model.LocalFlashCard
