@@ -16,7 +16,7 @@ import com.yuyakaido.android.cardstackview.SwipeAnimationSetting
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class SwipeFragment : Fragment(), CardStackListener {
+internal class SwipeFragment : Fragment(), CardStackListener {
     private val adapter: CardAdapter by inject()
     private val swipeViewModel: SwipeViewModel by viewModel()
     private lateinit var cardStackLayoutManager: CardStackLayoutManager
