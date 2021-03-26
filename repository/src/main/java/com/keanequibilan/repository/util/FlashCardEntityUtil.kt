@@ -1,12 +1,12 @@
 package com.keanequibilan.repository.util
 
-import com.keanequibilan.database.entity.CardSessionEntity
-import com.keanequibilan.database.entity.FlashCardEntity
+import com.keanequibilan.database.model.DbCard
+import com.keanequibilan.database.model.DbCardSession
 import com.keanequibilan.repository.model.DetailsSession
 import com.keanequibilan.repository.model.LocalCardDetails
 import com.keanequibilan.repository.model.LocalSwipeCard
 
-internal fun FlashCardEntity?.toLocalFlashCard() = this
+internal fun DbCard?.toLocalFlashCard() = this
     ?.id
     ?.let {
         LocalSwipeCard(
@@ -17,8 +17,8 @@ internal fun FlashCardEntity?.toLocalFlashCard() = this
     }
 
 internal fun toLocalDetails(
-    card: FlashCardEntity?,
-    sessions: List<CardSessionEntity>
+    card: DbCard?,
+    sessions: List<DbCardSession>
 ): LocalCardDetails? = card?.run {
     LocalCardDetails(
         id = id,
@@ -29,7 +29,7 @@ internal fun toLocalDetails(
 }
 
 private fun toDetailsSession(
-    sessions: List<CardSessionEntity>
+    sessions: List<DbCardSession>
 ): List<DetailsSession> = sessions.map { session ->
     DetailsSession(
         id = session.sessionId,

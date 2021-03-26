@@ -1,12 +1,12 @@
-package com.keanequibilan.database.dao
+package com.keanequibilan.database.impl.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import com.keanequibilan.database.entity.SessionEntity
+import com.keanequibilan.database.impl.entity.SessionEntity
 
 @Dao
-interface SessionDao {
+internal interface SessionDao {
     @Query("SELECT * FROM SessionEntity ORDER BY `id` DESC LIMIT 1")
     suspend fun getCurrentSession(): SessionEntity?
 

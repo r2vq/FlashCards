@@ -1,12 +1,12 @@
-package com.keanequibilan.database.dao
+package com.keanequibilan.database.impl.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import com.keanequibilan.database.entity.FlashCardEntity
+import com.keanequibilan.database.impl.entity.FlashCardEntity
 
 @Dao
-interface FlashCardDao {
+internal interface FlashCardDao {
     @Query("SELECT * FROM FlashCardEntity")
     suspend fun getAll(): List<FlashCardEntity>
 

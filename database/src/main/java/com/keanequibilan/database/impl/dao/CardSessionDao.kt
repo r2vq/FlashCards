@@ -1,13 +1,13 @@
-package com.keanequibilan.database.dao
+package com.keanequibilan.database.impl.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
-import com.keanequibilan.database.entity.CardSessionEntity
+import com.keanequibilan.database.impl.entity.CardSessionEntity
 
 @Dao
-interface CardSessionDao {
+internal interface CardSessionDao {
     @Query("SELECT * FROM CardSessionEntity WHERE `cardId` = :cardId AND `sessionId` = :sessionId")
     suspend fun getCardSession(cardId: Int, sessionId: Int): CardSessionEntity?
 

@@ -7,8 +7,6 @@ import Dependencies.ktx
 import Dependencies.paging
 import Dependencies.pagingKtx
 import Dependencies.pagingTesting
-import Dependencies.room
-import Dependencies.roomKtx
 import Dependencies.stdLib
 
 object RepositoryBuildModule : BuildModule() {
@@ -30,9 +28,7 @@ object RepositoryBuildModule : BuildModule() {
         appcompat,
         koin,
         paging,
-        pagingKtx,
-        room,
-        roomKtx
+        pagingKtx
     )
 
     override val kapts = listOf<String>(

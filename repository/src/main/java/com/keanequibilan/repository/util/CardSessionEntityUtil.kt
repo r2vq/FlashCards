@@ -1,9 +1,9 @@
 package com.keanequibilan.repository.util
 
-import com.keanequibilan.database.entity.CardSessionView
+import com.keanequibilan.database.model.DbCurrentCardSession
 import com.keanequibilan.repository.model.LocalFlashCard
 
-internal fun CardSessionView?.toLocalFlashCard() = this
+internal fun DbCurrentCardSession?.toLocalFlashCard() = this
     ?.let {
         LocalFlashCard(
             id = id,

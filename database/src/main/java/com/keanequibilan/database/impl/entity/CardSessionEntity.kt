@@ -1,4 +1,4 @@
-package com.keanequibilan.database.entity
+package com.keanequibilan.database.impl.entity
 
 import androidx.room.Entity
 
@@ -8,7 +8,7 @@ import androidx.room.Entity
         "sessionId"
     ]
 )
-data class CardSessionEntity(
+internal data class CardSessionEntity(
     val cardId: Int,
     val sessionId: Int,
     val correct: Int,
