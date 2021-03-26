@@ -11,7 +11,7 @@ import com.keanequibilan.screenadd.util.getTextOrNull
 import com.keanequibilan.screenadd.viewmodel.AddViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class AddFragment : Fragment() {
+internal class AddFragment : Fragment() {
 
     private val addViewModel: AddViewModel by viewModel()
 

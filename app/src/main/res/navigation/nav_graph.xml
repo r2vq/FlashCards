@@ -10,11 +10,7 @@
         android:label="SwipeFragment"
         tools:layout="@layout/fragment_swipe" />
 
-    <fragment
-        android:id="@+id/addFragment"
-        android:name="com.keanequibilan.screenadd.AddFragment"
-        android:label="AddFragment"
-        tools:layout="@layout/fragment_add" />
+    <include app:graph="@navigation/nav_screen_add" />
 
     <include app:graph="@navigation/nav_screen_list" />
 </navigation>

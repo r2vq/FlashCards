@@ -13,7 +13,7 @@
         android:title="@string/swipe_cards" />
 
     <item
-        android:id="@+id/addFragment"
+        android:id="@+id/nav_screen_add"
         android:enabled="true"
         android:icon="@drawable/ic_add_to_photos"
         android:title="@string/add_card" />
