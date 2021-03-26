@@ -21,14 +21,14 @@ internal class RepositoryImpl(
         .getAll()
         .mapNotNull(FlashCardEntity?::toLocalFlashCard)
 
-    override suspend fun getCardDetails(cardId: Int): LocalCardDetails? {
+    override suspend fun getCardDetails(id: Int): LocalCardDetails? {
         val card = db
             .flashCardDao()
-            .get(cardId)
+            .get(id)
 
         val sessions = db
             .cardSessionDao()
-            .getSessionsForCard(cardId)
+            .getSessionsForCard(id)
 
         return toLocalDetails(card, sessions)
     }
