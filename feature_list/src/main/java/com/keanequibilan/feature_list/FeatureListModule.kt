@@ -4,7 +4,7 @@ import com.keanequibilan.feature_list.impl.adapter.CardAdapter
 import com.keanequibilan.feature_list.impl.adapter.DetailsAdapter
 import com.keanequibilan.feature_list.impl.viewmodel.DetailsViewModel
 import com.keanequibilan.feature_list.impl.viewmodel.ListViewModel
-import com.keanequibilan.repository.Repository
+import com.keanequibilan.layer_repo.Repository
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

@@ -19,7 +19,7 @@
             <option value="$PROJECT_DIR$/feature_add" />
             <option value="$PROJECT_DIR$/feature_list" />
             <option value="$PROJECT_DIR$/feature_swipe" />
-            <option value="$PROJECT_DIR$/repository" />
+            <option value="$PROJECT_DIR$/layer_repo" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

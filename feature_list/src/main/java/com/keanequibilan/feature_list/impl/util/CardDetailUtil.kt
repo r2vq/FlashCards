@@ -3,7 +3,7 @@ package com.keanequibilan.feature_list.impl.util
 import com.keanequibilan.feature_list.impl.model.DetailCardItem
 import com.keanequibilan.feature_list.impl.model.DetailItem
 import com.keanequibilan.feature_list.impl.model.DetailSessionItem
-import com.keanequibilan.repository.model.LocalCardDetails
+import com.keanequibilan.layer_repo.model.LocalCardDetails
 
 internal fun LocalCardDetails?.toDetailItems(): List<DetailItem> {
     val detailCardItem = this?.run {

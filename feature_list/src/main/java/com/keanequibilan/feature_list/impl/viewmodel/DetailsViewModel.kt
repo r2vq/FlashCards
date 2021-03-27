@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.keanequibilan.feature_list.impl.model.DetailItem
 import com.keanequibilan.feature_list.impl.util.toDetailItems
-import com.keanequibilan.repository.Repository
+import com.keanequibilan.layer_repo.Repository
 import kotlinx.coroutines.launch
 
 internal class DetailsViewModel(

@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.keanequibilan.feature_swipe.impl.model.CardItem
 import com.keanequibilan.feature_swipe.impl.util.toCardItem
-import com.keanequibilan.repository.Repository
+import com.keanequibilan.layer_repo.Repository
 import com.yuyakaido.android.cardstackview.Direction
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

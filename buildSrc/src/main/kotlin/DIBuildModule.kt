@@ -16,10 +16,10 @@ object DIBuildModule : BuildModule() {
 
     override val localModules = listOf(
         database,
-        repository,
         featureAdd,
         featureList,
-        featureSwipe
+        featureSwipe,
+        layerRepo
     )
 
     override val implementations = listOf(

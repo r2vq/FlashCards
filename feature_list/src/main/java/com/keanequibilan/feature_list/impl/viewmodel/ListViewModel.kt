@@ -7,7 +7,7 @@ import androidx.paging.PagedList
 import androidx.paging.toLiveData
 import com.keanequibilan.feature_list.impl.model.ListItem
 import com.keanequibilan.feature_list.impl.util.toListItem
-import com.keanequibilan.repository.Repository
+import com.keanequibilan.layer_repo.Repository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

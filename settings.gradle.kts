@@ -6,6 +6,6 @@ include(
     ":feature_add",
     ":feature_list",
     ":feature_swipe",
-    ":repository"
+    ":layer_repo"
 )
 rootProject.name = "FlashCards"

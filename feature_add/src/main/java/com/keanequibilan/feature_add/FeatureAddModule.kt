@@ -1,7 +1,7 @@
 package com.keanequibilan.feature_add
 
 import com.keanequibilan.feature_add.impl.viewmodel.AddViewModel
-import com.keanequibilan.repository.Repository
+import com.keanequibilan.layer_repo.Repository
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

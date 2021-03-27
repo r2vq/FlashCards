@@ -2,7 +2,7 @@ package com.keanequibilan.feature_swipe
 
 import com.keanequibilan.feature_swipe.impl.adapter.CardAdapter
 import com.keanequibilan.feature_swipe.impl.viewmodel.SwipeViewModel
-import com.keanequibilan.repository.Repository
+import com.keanequibilan.layer_repo.Repository
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import java.util.*
