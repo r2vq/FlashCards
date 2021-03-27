@@ -8,5 +8,5 @@
 
     <include app:graph="@navigation/nav_feature_add" />
 
-    <include app:graph="@navigation/nav_screen_list" />
+    <include app:graph="@navigation/nav_feature_list" />
 </navigation>

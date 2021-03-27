@@ -4,8 +4,8 @@ include(
     ":database",
     ":di",
     ":feature_add",
+    ":feature_list",
     ":repository",
-    ":screenlist",
     ":screenswipe"
 )
 rootProject.name = "FlashCards"

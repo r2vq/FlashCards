@@ -18,7 +18,7 @@ object DIBuildModule : BuildModule() {
         database,
         repository,
         featureAdd,
-        screenlist,
+        featureList,
         screenswipe
     )
 

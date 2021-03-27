@@ -6,48 +6,49 @@ import Dependencies.junitExt
 import Dependencies.koin
 import Dependencies.ktx
 import Dependencies.material
-import Dependencies.multidex
 import Dependencies.navigationFragment
 import Dependencies.navigationUi
 import Dependencies.paging
+import Dependencies.pagingKtx
+import Dependencies.pagingTesting
+import Dependencies.recyclerView
 import Dependencies.stdLib
-import Dependencies.stetho
+import Dependencies.viewModel
 
-object AppBuildModule : BuildModule() {
+object FeatureListBuildModule : BuildModule() {
     override val plugins = listOf(
-        application
+        library
     )
     override val kotlinPlugins = listOf(
         android
     )
 
-    override val localModules: List<String> = listOf(
+    override val localModules = listOf(
         common,
-        di,
-        featureAdd,
-        featureList,
-        screenswipe
+        repository
     )
 
     override val implementations = listOf(
         stdLib,
-        koin,
         ktx,
         appcompat,
         constraint,
+        koin,
         material,
-        multidex,
         navigationFragment,
         navigationUi,
         paging,
-        stetho
+        pagingKtx,
+        recyclerView,
+        viewModel
     )
 
-    override val kapts: List<String> = listOf(
+    override val kapts = listOf<String>(
     )
 
     override val testImplementations = listOf(
-        junit
+        junit,
+        pagingTesting
     )
 
     override val androidTestImplementations = listOf(
