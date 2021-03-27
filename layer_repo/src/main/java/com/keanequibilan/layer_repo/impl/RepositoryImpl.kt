@@ -5,11 +5,11 @@ import com.keanequibilan.layer_db.DatabaseClient
 import com.keanequibilan.layer_db.model.DbCard
 import com.keanequibilan.layer_db.model.DbCurrentCardSession
 import com.keanequibilan.layer_repo.Repository
+import com.keanequibilan.layer_repo.impl.util.toLocalDetails
+import com.keanequibilan.layer_repo.impl.util.toLocalFlashCard
 import com.keanequibilan.layer_repo.model.LocalCardDetails
 import com.keanequibilan.layer_repo.model.LocalFlashCard
 import com.keanequibilan.layer_repo.model.LocalSwipeCard
-import com.keanequibilan.layer_repo.impl.util.toLocalDetails
-import com.keanequibilan.layer_repo.impl.util.toLocalFlashCard
 
 internal class RepositoryImpl(
     private val db: DatabaseClient
@@ -18,15 +18,9 @@ internal class RepositoryImpl(
         .getAllCards()
         .mapNotNull(DbCard?::toLocalFlashCard)
 
-    override suspend fun getCardDetails(id: Int): LocalCardDetails? {
-        val card = db
-            .getCard(id)
-
-        val sessions = db
-            .getSessionsForCard(id)
-
-        return toLocalDetails(card, sessions)
-    }
+    override suspend fun getCardDetails(id: Int): LocalCardDetails? = db
+        .getCardDetails(id)
+        ?.toLocalDetails()
 
     override fun getCardsPaged(): DataSource.Factory<Int, LocalFlashCard> = db
         .getCurrentCardSessions()

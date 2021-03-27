@@ -4,7 +4,7 @@ import com.keanequibilan.layer_db.impl.entity.CardSessionView
 import com.keanequibilan.layer_db.model.DbCurrentCardSession
 
 internal fun CardSessionView.toDbCardSession(): DbCurrentCardSession = DbCurrentCardSession(
-    id = id,
+    cardId = id,
     sessionId = sessionId,
     front = front,
     back = back,

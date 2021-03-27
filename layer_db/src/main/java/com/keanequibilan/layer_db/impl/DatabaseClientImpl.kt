@@ -4,9 +4,11 @@ import com.keanequibilan.layer_db.DatabaseClient
 import com.keanequibilan.layer_db.impl.db.FlashCardDatabase
 import com.keanequibilan.layer_db.impl.entity.CardSessionEntity
 import com.keanequibilan.layer_db.impl.entity.CardSessionView
+import com.keanequibilan.layer_db.impl.entity.FlashCardCardSession
 import com.keanequibilan.layer_db.impl.entity.FlashCardEntity
 import com.keanequibilan.layer_db.impl.entity.SessionEntity
 import com.keanequibilan.layer_db.impl.util.toDbCard
+import com.keanequibilan.layer_db.impl.util.toDbCardDetails
 import com.keanequibilan.layer_db.impl.util.toDbCardSession
 import com.keanequibilan.layer_db.impl.util.toDbSession
 import com.keanequibilan.layer_db.model.DbSession
@@ -58,15 +60,10 @@ internal class DatabaseClientImpl(
         }
         .let(SessionEntity::toDbSession)
 
-    override suspend fun getCard(id: Int) = db
+    override suspend fun getCardDetails(id: Int) = db
         .flashCardDao()
-        .get(id)
-        ?.toDbCard()
-
-    override suspend fun getSessionsForCard(cardId: Int) = db
-        .cardSessionDao()
-        .getSessionsForCard(cardId)
-        .map(CardSessionEntity::toDbCardSession)
+        .getDetails(id)
+        ?.let(FlashCardCardSession::toDbCardDetails)
 
     override fun getCurrentCardSessions() = db
         .cardSessionViewDao()

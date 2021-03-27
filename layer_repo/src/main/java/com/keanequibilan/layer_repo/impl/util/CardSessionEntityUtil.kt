@@ -6,7 +6,7 @@ import com.keanequibilan.layer_repo.model.LocalFlashCard
 internal fun DbCurrentCardSession?.toLocalFlashCard() = this
     ?.let {
         LocalFlashCard(
-            id = id,
+            id = cardId,
             front = front,
             back = back,
             correct = correct,

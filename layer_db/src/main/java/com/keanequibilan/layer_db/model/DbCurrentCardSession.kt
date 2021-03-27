@@ -1,7 +1,7 @@
 package com.keanequibilan.layer_db.model
 
 data class DbCurrentCardSession internal constructor(
-    val id: Int,
+    val cardId: Int,
     val sessionId: Int,
     val front: String,
     val back: String,

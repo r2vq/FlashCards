@@ -3,10 +3,14 @@ package com.keanequibilan.layer_db.impl.dao
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import com.keanequibilan.layer_db.impl.entity.FlashCardCardSession
 import com.keanequibilan.layer_db.impl.entity.FlashCardEntity
 
 @Dao
 internal interface FlashCardDao {
+    @Query("SELECT * FROM FlashCardEntity WHERE `id` = :id")
+    suspend fun getDetails(id: Int): FlashCardCardSession?
+
     @Query("SELECT * FROM FlashCardEntity")
     suspend fun getAll(): List<FlashCardEntity>
 

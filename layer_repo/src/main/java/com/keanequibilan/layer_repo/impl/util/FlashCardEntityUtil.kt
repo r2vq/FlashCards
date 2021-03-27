@@ -1,6 +1,7 @@
 package com.keanequibilan.layer_repo.impl.util
 
 import com.keanequibilan.layer_db.model.DbCard
+import com.keanequibilan.layer_db.model.DbCardDetails
 import com.keanequibilan.layer_db.model.DbCardSession
 import com.keanequibilan.layer_repo.model.DetailsSession
 import com.keanequibilan.layer_repo.model.LocalCardDetails
@@ -16,25 +17,16 @@ internal fun DbCard?.toLocalFlashCard() = this
         )
     }
 
-internal fun toLocalDetails(
-    card: DbCard?,
-    sessions: List<DbCardSession>
-): LocalCardDetails? = card?.run {
-    LocalCardDetails(
-        id = id,
-        front = front,
-        back = back,
-        sessions = toDetailsSession(sessions)
-    )
-}
+internal fun DbCardDetails.toLocalDetails() = LocalCardDetails(
+    id = card.id,
+    front = card.front,
+    back = card.back,
+    sessions = sessions.map(DbCardSession::toDetailsSession)
+)
 
-private fun toDetailsSession(
-    sessions: List<DbCardSession>
-): List<DetailsSession> = sessions.map { session ->
-    DetailsSession(
-        id = session.sessionId,
-        correct = session.correct,
-        incorrect = session.incorrect,
-        skips = session.skip
-    )
-}
+internal fun DbCardSession.toDetailsSession(): DetailsSession = DetailsSession(
+    id = sessionId,
+    correct = correct,
+    incorrect = incorrect,
+    skips = skip
+)
