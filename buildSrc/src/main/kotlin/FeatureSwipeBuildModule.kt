@@ -25,7 +25,7 @@ object FeatureSwipeBuildModule : BuildModule() {
     )
 
     override val localModules = listOf(
-        common,
+        layerCommon,
         layerRepo
     )
 

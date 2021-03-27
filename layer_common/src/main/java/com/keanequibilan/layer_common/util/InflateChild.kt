@@ -1,4 +1,4 @@
-package com.keanequibilan.common.util
+package com.keanequibilan.layer_common.util
 
 import android.view.LayoutInflater
 import android.view.View

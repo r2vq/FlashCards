@@ -2,7 +2,6 @@ package com.keanequibilan.feature_list.impl.adapter
 
 import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
-import com.keanequibilan.common.util.inflateChild
 import com.keanequibilan.feature_list.R
 import com.keanequibilan.feature_list.impl.diffutil.ListItemDiffUtil
 import com.keanequibilan.feature_list.impl.model.CardListItem
@@ -17,6 +16,7 @@ import com.keanequibilan.feature_list.impl.viewholder.CardListItemViewHolder.Vie
 import com.keanequibilan.feature_list.impl.viewholder.CardListItemViewHolder.ViewHolderType.GOOD
 import com.keanequibilan.feature_list.impl.viewholder.CardListItemViewHolder.ViewHolderType.NEUTRAL
 import com.keanequibilan.feature_list.impl.viewholder.ItemViewHolder
+import com.keanequibilan.layer_common.util.inflateChild
 
 internal class CardAdapter : PagedListAdapter<ListItem, ItemViewHolder>(ListItemDiffUtil) {
     private var onItemClickListener: ((item: CardListItem) -> Unit)? = null

@@ -2,13 +2,13 @@ package com.keanequibilan.feature_list.impl.adapter
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
-import com.keanequibilan.common.util.inflateChild
 import com.keanequibilan.feature_list.R
 import com.keanequibilan.feature_list.impl.diffutil.DetailItemDiffUtil
 import com.keanequibilan.feature_list.impl.model.DetailItem
 import com.keanequibilan.feature_list.impl.viewholder.DetailCardViewHolder
 import com.keanequibilan.feature_list.impl.viewholder.DetailSessionViewHolder
 import com.keanequibilan.feature_list.impl.viewholder.DetailViewHolder
+import com.keanequibilan.layer_common.util.inflateChild
 
 internal class DetailsAdapter : ListAdapter<DetailItem, DetailViewHolder>(DetailItemDiffUtil) {
     override fun getItemViewType(position: Int): Int = getItem(position).type

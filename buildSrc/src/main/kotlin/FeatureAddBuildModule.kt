@@ -24,7 +24,7 @@ object FeatureAddBuildModule : BuildModule() {
     )
 
     override val localModules = listOf(
-        common,
+        layerCommon,
         layerRepo
     )
 

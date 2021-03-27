@@ -22,7 +22,7 @@ object LayerDbBuildModule : BuildModule() {
     )
 
     override val localModules: List<String> = listOf(
-        common
+        layerCommon
     )
 
     override val implementations = listOf(

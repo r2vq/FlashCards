@@ -13,10 +13,10 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/buildSrc" />
-            <option value="$PROJECT_DIR$/common" />
             <option value="$PROJECT_DIR$/feature_add" />
             <option value="$PROJECT_DIR$/feature_list" />
             <option value="$PROJECT_DIR$/feature_swipe" />
+            <option value="$PROJECT_DIR$/layer_common" />
             <option value="$PROJECT_DIR$/layer_db" />
             <option value="$PROJECT_DIR$/layer_di" />
             <option value="$PROJECT_DIR$/layer_repo" />
