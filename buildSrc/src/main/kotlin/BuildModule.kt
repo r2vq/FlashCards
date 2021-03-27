@@ -16,10 +16,10 @@ abstract class BuildModule {
     abstract val androidTestImplementations: List<String>
 
     protected val common = ":common"
-    protected val database = ":database"
     protected val featureAdd = ":feature_add"
     protected val featureList = ":feature_list"
     protected val featureSwipe = ":feature_swipe"
+    protected val layerDb = ":layer_db"
     protected val layerDi = ":layer_di"
     protected val layerRepo = ":layer_repo"
 

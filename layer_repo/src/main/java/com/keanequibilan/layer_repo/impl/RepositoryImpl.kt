@@ -1,9 +1,9 @@
 package com.keanequibilan.layer_repo.impl
 
 import androidx.paging.DataSource
-import com.keanequibilan.database.DatabaseClient
-import com.keanequibilan.database.model.DbCard
-import com.keanequibilan.database.model.DbCurrentCardSession
+import com.keanequibilan.layer_db.DatabaseClient
+import com.keanequibilan.layer_db.model.DbCard
+import com.keanequibilan.layer_db.model.DbCurrentCardSession
 import com.keanequibilan.layer_repo.Repository
 import com.keanequibilan.layer_repo.model.LocalCardDetails
 import com.keanequibilan.layer_repo.model.LocalFlashCard

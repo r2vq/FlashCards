@@ -1,10 +1,10 @@
 include(
     ":app",
     ":common",
-    ":database",
     ":feature_add",
     ":feature_list",
     ":feature_swipe",
+    ":layer_db",
     ":layer_di",
     ":layer_repo"
 )

@@ -19,7 +19,7 @@ object LayerRepoBuildModule : BuildModule() {
 
     override val localModules = listOf(
         common,
-        database
+        layerDb
     )
 
     override val implementations = listOf(

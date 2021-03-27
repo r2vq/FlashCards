@@ -1,7 +1,7 @@
 package com.keanequibilan.layer_repo.impl.util
 
-import com.keanequibilan.database.model.DbCard
-import com.keanequibilan.database.model.DbCardSession
+import com.keanequibilan.layer_db.model.DbCard
+import com.keanequibilan.layer_db.model.DbCardSession
 import com.keanequibilan.layer_repo.model.DetailsSession
 import com.keanequibilan.layer_repo.model.LocalCardDetails
 import com.keanequibilan.layer_repo.model.LocalSwipeCard

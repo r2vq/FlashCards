@@ -1,6 +1,6 @@
 package com.keanequibilan.layer_repo
 
-import com.keanequibilan.database.DatabaseClient
+import com.keanequibilan.layer_db.DatabaseClient
 import com.keanequibilan.layer_repo.impl.RepositoryImpl
 import org.koin.dsl.module
 

@@ -4,36 +4,45 @@ import Dependencies.junit
 import Dependencies.junitExt
 import Dependencies.koin
 import Dependencies.ktx
+import Dependencies.paging
+import Dependencies.pagingKtx
+import Dependencies.pagingTesting
+import Dependencies.room
+import Dependencies.roomKapt
+import Dependencies.roomKtx
 import Dependencies.stdLib
 
-object LayerDIBuildModule : BuildModule() {
+object LayerDbBuildModule : BuildModule() {
     override val plugins = listOf(
         library
     )
     override val kotlinPlugins = listOf(
-        android
+        android,
+        kapt
     )
 
-    override val localModules = listOf(
-        featureAdd,
-        featureList,
-        featureSwipe,
-        layerDb,
-        layerRepo
+    override val localModules: List<String> = listOf(
+        common
     )
 
     override val implementations = listOf(
         stdLib,
         ktx,
         appcompat,
-        koin
+        koin,
+        paging,
+        pagingKtx,
+        room,
+        roomKtx
     )
 
-    override val kapts = listOf<String>(
+    override val kapts = listOf(
+        roomKapt
     )
 
     override val testImplementations = listOf(
-        junit
+        junit,
+        pagingTesting
     )
 
     override val androidTestImplementations = listOf(
