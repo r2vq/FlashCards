@@ -3,8 +3,8 @@ include(
     ":common",
     ":database",
     ":di",
+    ":feature_add",
     ":repository",
-    ":screenadd",
     ":screenlist",
     ":screenswipe"
 )

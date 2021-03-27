@@ -18,8 +18,8 @@ abstract class BuildModule {
     protected val common = ":common"
     protected val database = ":database"
     protected val di = ":di"
+    protected val featureAdd = ":feature_add"
     protected val repository = ":repository"
-    protected val screenadd = ":screenadd"
     protected val screenlist = ":screenlist"
     protected val screenswipe = ":screenswipe"
 

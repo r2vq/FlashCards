@@ -6,7 +6,7 @@
 
     <include app:graph="@navigation/nav_screen_swipe" />
 
-    <include app:graph="@navigation/nav_screen_add" />
+    <include app:graph="@navigation/nav_feature_add" />
 
     <include app:graph="@navigation/nav_screen_list" />
 </navigation>
