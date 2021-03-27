@@ -2,6 +2,9 @@ package com.keanequibilan.feature_swipe.impl.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatImageView
@@ -60,9 +63,27 @@ internal class SwipeFragment : Fragment(), CardStackListener {
         svCards.layoutManager = cardStackLayoutManager
         svCards.adapter = adapter
 
-        swipeViewModel.listItems.observe(viewLifecycleOwner) { items -> adapter.submitList(items) }
+        swipeViewModel.listItems.observe(viewLifecycleOwner) { items ->
+            adapter.submitList(items)
+            adapter.notifyDataSetChanged()
+        }
+
+        setHasOptionsMenu(true)
 
         return view
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.screen_swipe_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
+        R.id.mi_shuffle -> {
+            swipeViewModel.shuffle()
+            true
+        }
+        else -> super.onOptionsItemSelected(item)
     }
 
     override fun onCardDragging(direction: Direction?, ratio: Float) {

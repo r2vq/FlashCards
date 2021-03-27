@@ -14,7 +14,7 @@ import java.util.*
 
 internal class SwipeViewModel(
     private val repo: Repository,
-    random: Random
+    private val random: Random
 ) : ViewModel() {
     private val mutableListItems: MutableLiveData<List<CardItem>> = MutableLiveData()
     val listItems: LiveData<List<CardItem>> = mutableListItems
@@ -24,10 +24,15 @@ internal class SwipeViewModel(
             repo
                 .getCards()
                 .map { card -> card.toCardItem() }
-                .toMutableList()
-                .apply { shuffle(random) }
+                .shuffled(random)
                 .let { mutableListItems.postValue(it) }
         }
+    }
+
+    fun shuffle() {
+        mutableListItems.value
+            ?.shuffled(random)
+            ?.let { mutableListItems.postValue(it) }
     }
 
     fun onSwipe(
