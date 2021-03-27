@@ -2,7 +2,7 @@ package com.keanequibilan.flashcards
 
 import androidx.multidex.MultiDexApplication
 import com.facebook.stetho.Stetho
-import com.keanequibilan.di.DI_MODULES
+import com.keanequibilan.layer_di.LAYER_DI_MODULES
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -12,7 +12,7 @@ class FlashCardsApp : MultiDexApplication() {
         super.onCreate()
         startKoin {
             androidContext(this@FlashCardsApp)
-            modules(DI_MODULES)
+            modules(LAYER_DI_MODULES)
         }
         Stetho.initializeWithDefaults(this)
     }

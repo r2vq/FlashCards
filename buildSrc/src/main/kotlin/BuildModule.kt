@@ -17,10 +17,10 @@ abstract class BuildModule {
 
     protected val common = ":common"
     protected val database = ":database"
-    protected val di = ":di"
     protected val featureAdd = ":feature_add"
     protected val featureList = ":feature_list"
     protected val featureSwipe = ":feature_swipe"
+    protected val layerDi = ":layer_di"
     protected val layerRepo = ":layer_repo"
 
     val compileSdk = 30

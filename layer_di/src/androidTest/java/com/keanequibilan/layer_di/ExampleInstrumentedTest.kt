@@ -1,4 +1,4 @@
-package com.keanequibilan.di
+package com.keanequibilan.layer_di
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.keanequibilan.di.test", appContext.packageName)
+        assertEquals("com.keanequibilan.layer_di.test", appContext.packageName)
     }
 }

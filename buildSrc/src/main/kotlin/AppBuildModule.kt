@@ -23,10 +23,10 @@ object AppBuildModule : BuildModule() {
 
     override val localModules: List<String> = listOf(
         common,
-        di,
         featureAdd,
         featureList,
-        featureSwipe
+        featureSwipe,
+        layerDi
     )
 
     override val implementations = listOf(

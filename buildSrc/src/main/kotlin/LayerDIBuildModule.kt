@@ -6,7 +6,7 @@ import Dependencies.koin
 import Dependencies.ktx
 import Dependencies.stdLib
 
-object DIBuildModule : BuildModule() {
+object LayerDIBuildModule : BuildModule() {
     override val plugins = listOf(
         library
     )

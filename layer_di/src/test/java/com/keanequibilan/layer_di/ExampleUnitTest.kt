@@ -1,4 +1,4 @@
-package com.keanequibilan.di
+package com.keanequibilan.layer_di
 
 import org.junit.Test
 
