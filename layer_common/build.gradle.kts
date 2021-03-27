@@ -3,23 +3,24 @@ plugins {
     CommonBuildModule.kotlinPlugins.forEach { plugin -> kotlin(plugin) }
 }
 
+val buildModule = CommonBuildModule
 android {
-    compileSdkVersion(CommonBuildModule.compileSdk)
-    buildToolsVersion(CommonBuildModule.buildTools)
+    compileSdkVersion(buildModule.compileSdk)
+    buildToolsVersion(buildModule.buildTools)
 
     defaultConfig {
-        minSdkVersion(CommonBuildModule.minSdk)
-        targetSdkVersion(CommonBuildModule.targetSdk)
-        versionCode(CommonBuildModule.versionCode)
-        versionName(CommonBuildModule.versionName)
+        minSdkVersion(buildModule.minSdk)
+        targetSdkVersion(buildModule.targetSdk)
+        versionCode(buildModule.versionCode)
+        versionName(buildModule.versionName)
 
-        testInstrumentationRunner = CommonBuildModule.testInstrumentationRunner
+        testInstrumentationRunner = buildModule.testInstrumentationRunner
         consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
         getByName("release") {
-            isMinifyEnabled = CommonBuildModule.isMinifyEnabled
+            isMinifyEnabled = buildModule.isMinifyEnabled
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -27,11 +28,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = CommonBuildModule.compileCompatibility
-        targetCompatibility = CommonBuildModule.compileCompatibility
+        sourceCompatibility = buildModule.compileCompatibility
+        targetCompatibility = buildModule.compileCompatibility
     }
     kotlinOptions {
-        jvmTarget = CommonBuildModule.jvmTarget
+        jvmTarget = buildModule.jvmTarget
     }
 }
 

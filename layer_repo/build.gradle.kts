@@ -3,23 +3,24 @@ plugins {
     LayerRepoBuildModule.kotlinPlugins.forEach { plugin -> kotlin(plugin) }
 }
 
+val buildModule = LayerRepoBuildModule
 android {
-    compileSdkVersion(LayerRepoBuildModule.compileSdk)
-    buildToolsVersion(LayerRepoBuildModule.buildTools)
+    compileSdkVersion(buildModule.compileSdk)
+    buildToolsVersion(buildModule.buildTools)
 
     defaultConfig {
-        minSdkVersion(LayerRepoBuildModule.minSdk)
-        targetSdkVersion(LayerRepoBuildModule.targetSdk)
-        versionCode(LayerRepoBuildModule.versionCode)
-        versionName(LayerRepoBuildModule.versionName)
+        minSdkVersion(buildModule.minSdk)
+        targetSdkVersion(buildModule.targetSdk)
+        versionCode(buildModule.versionCode)
+        versionName(buildModule.versionName)
 
-        testInstrumentationRunner = LayerRepoBuildModule.testInstrumentationRunner
+        testInstrumentationRunner = buildModule.testInstrumentationRunner
         consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
         getByName("release") {
-            isMinifyEnabled = LayerRepoBuildModule.isMinifyEnabled
+            isMinifyEnabled = buildModule.isMinifyEnabled
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -27,16 +28,16 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = LayerRepoBuildModule.compileCompatibility
-        targetCompatibility = LayerRepoBuildModule.compileCompatibility
+        sourceCompatibility = buildModule.compileCompatibility
+        targetCompatibility = buildModule.compileCompatibility
     }
     kotlinOptions {
-        jvmTarget = LayerRepoBuildModule.jvmTarget
+        jvmTarget = buildModule.jvmTarget
     }
 }
 
 dependencies {
-    LayerRepoBuildModule.run {
+    buildModule.run {
         localModules.forEach { lib -> add("implementation", project(lib)) }
         implementations.forEach { lib -> add("implementation", lib) }
         kapts.forEach { lib -> add("kapt", lib) }

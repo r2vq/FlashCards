@@ -3,23 +3,24 @@ plugins {
     LayerDIBuildModule.kotlinPlugins.forEach { plugin -> kotlin(plugin) }
 }
 
+val buildModule = LayerDIBuildModule
 android {
-    compileSdkVersion(LayerDIBuildModule.compileSdk)
-    buildToolsVersion(LayerDIBuildModule.buildTools)
+    compileSdkVersion(buildModule.compileSdk)
+    buildToolsVersion(buildModule.buildTools)
 
     defaultConfig {
-        minSdkVersion(LayerDIBuildModule.minSdk)
-        targetSdkVersion(LayerDIBuildModule.targetSdk)
-        versionCode(LayerDIBuildModule.versionCode)
-        versionName(LayerDIBuildModule.versionName)
+        minSdkVersion(buildModule.minSdk)
+        targetSdkVersion(buildModule.targetSdk)
+        versionCode(buildModule.versionCode)
+        versionName(buildModule.versionName)
 
-        testInstrumentationRunner = LayerDIBuildModule.testInstrumentationRunner
+        testInstrumentationRunner = buildModule.testInstrumentationRunner
         consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
         getByName("release") {
-            isMinifyEnabled = LayerDIBuildModule.isMinifyEnabled
+            isMinifyEnabled = buildModule.isMinifyEnabled
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -27,16 +28,16 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = LayerDIBuildModule.compileCompatibility
-        targetCompatibility = LayerDIBuildModule.compileCompatibility
+        sourceCompatibility = buildModule.compileCompatibility
+        targetCompatibility = buildModule.compileCompatibility
     }
     kotlinOptions {
-        jvmTarget = LayerDIBuildModule.jvmTarget
+        jvmTarget = buildModule.jvmTarget
     }
 }
 
 dependencies {
-    LayerDIBuildModule.run {
+    buildModule.run {
         localModules.forEach { lib -> add("implementation", project(lib)) }
         implementations.forEach { lib -> add("implementation", lib) }
         kapts.forEach { lib -> add("kapt", lib) }

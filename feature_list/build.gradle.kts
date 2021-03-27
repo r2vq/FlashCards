@@ -3,40 +3,41 @@ plugins {
     FeatureListBuildModule.kotlinPlugins.forEach { plugin -> kotlin(plugin) }
 }
 
+val buildModule = FeatureListBuildModule
 android {
-    compileSdkVersion(FeatureListBuildModule.compileSdk)
-    buildToolsVersion(FeatureListBuildModule.buildTools)
+    compileSdkVersion(buildModule.compileSdk)
+    buildToolsVersion(buildModule.buildTools)
 
     defaultConfig {
-        minSdkVersion(FeatureListBuildModule.minSdk)
-        targetSdkVersion(FeatureListBuildModule.targetSdk)
-        versionCode(FeatureListBuildModule.versionCode)
-        versionName(FeatureListBuildModule.versionName)
+        minSdkVersion(buildModule.minSdk)
+        targetSdkVersion(buildModule.targetSdk)
+        versionCode(buildModule.versionCode)
+        versionName(buildModule.versionName)
 
-        testInstrumentationRunner = FeatureListBuildModule.testInstrumentationRunner
+        testInstrumentationRunner = buildModule.testInstrumentationRunner
         consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
         getByName("release") {
-            isMinifyEnabled = FeatureListBuildModule.isMinifyEnabled
+            isMinifyEnabled = buildModule.isMinifyEnabled
             proguardFiles(
-                    getDefaultProguardFile("proguard-android-optimize.txt"),
-                    "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
             )
         }
     }
     compileOptions {
-        sourceCompatibility = FeatureListBuildModule.compileCompatibility
-        targetCompatibility = FeatureListBuildModule.compileCompatibility
+        sourceCompatibility = buildModule.compileCompatibility
+        targetCompatibility = buildModule.compileCompatibility
     }
     kotlinOptions {
-        jvmTarget = FeatureListBuildModule.jvmTarget
+        jvmTarget = buildModule.jvmTarget
     }
 }
 
 dependencies {
-    FeatureListBuildModule.run {
+    buildModule.run {
         localModules.forEach { lib -> add("implementation", project(lib)) }
         implementations.forEach { lib -> add("implementation", lib) }
         kapts.forEach { lib -> add("kapt", lib) }

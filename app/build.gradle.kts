@@ -3,24 +3,25 @@ plugins {
     AppBuildModule.kotlinPlugins.forEach { plugin -> kotlin(plugin) }
 }
 
+val buildModule = AppBuildModule
 android {
-    compileSdkVersion(AppBuildModule.compileSdk)
-    buildToolsVersion(AppBuildModule.buildTools)
+    compileSdkVersion(buildModule.compileSdk)
+    buildToolsVersion(buildModule.buildTools)
 
     defaultConfig {
         applicationId = "com.keanequibilan.flashcards"
-        minSdkVersion(AppBuildModule.minSdk)
-        multiDexEnabled = AppBuildModule.multiDexEnabled
-        targetSdkVersion(AppBuildModule.targetSdk)
-        versionCode(AppBuildModule.versionCode)
-        versionName(AppBuildModule.versionName)
+        minSdkVersion(buildModule.minSdk)
+        multiDexEnabled = buildModule.multiDexEnabled
+        targetSdkVersion(buildModule.targetSdk)
+        versionCode(buildModule.versionCode)
+        versionName(buildModule.versionName)
 
-        testInstrumentationRunner = AppBuildModule.testInstrumentationRunner
+        testInstrumentationRunner = buildModule.testInstrumentationRunner
     }
 
     buildTypes {
         getByName("release") {
-            isMinifyEnabled = AppBuildModule.isMinifyEnabled
+            isMinifyEnabled = buildModule.isMinifyEnabled
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -28,16 +29,16 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = AppBuildModule.compileCompatibility
-        targetCompatibility = AppBuildModule.compileCompatibility
+        sourceCompatibility = buildModule.compileCompatibility
+        targetCompatibility = buildModule.compileCompatibility
     }
     kotlinOptions {
-        jvmTarget = AppBuildModule.jvmTarget
+        jvmTarget = buildModule.jvmTarget
     }
 }
 
 dependencies {
-    AppBuildModule.run {
+    buildModule.run {
         localModules.forEach { lib -> add("implementation", project(lib)) }
         implementations.forEach { lib -> add("implementation", lib) }
         kapts.forEach { lib -> add("kapt", lib) }
