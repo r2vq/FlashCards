@@ -34,6 +34,7 @@ internal class AddFragment : Fragment() {
 
                 tilFront.editText?.text?.clear()
                 tilBack.editText?.text?.clear()
+                tilFront.editText?.requestFocus()
             }
         }
         return view
