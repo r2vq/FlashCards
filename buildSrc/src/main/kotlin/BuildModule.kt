@@ -20,8 +20,8 @@ abstract class BuildModule {
     protected val di = ":di"
     protected val featureAdd = ":feature_add"
     protected val featureList = ":feature_list"
+    protected val featureSwipe = ":feature_swipe"
     protected val repository = ":repository"
-    protected val screenswipe = ":screenswipe"
 
     val compileSdk = 30
     val buildTools = "30.0.3"

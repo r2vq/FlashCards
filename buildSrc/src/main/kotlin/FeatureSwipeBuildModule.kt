@@ -1,12 +1,22 @@
 import Dependencies.appcompat
+import Dependencies.cardStackView
+import Dependencies.constraint
 import Dependencies.espressoCore
 import Dependencies.junit
 import Dependencies.junitExt
 import Dependencies.koin
 import Dependencies.ktx
+import Dependencies.material
+import Dependencies.navigationFragment
+import Dependencies.navigationUi
+import Dependencies.paging
+import Dependencies.pagingKtx
+import Dependencies.pagingTesting
+import Dependencies.recyclerView
 import Dependencies.stdLib
+import Dependencies.viewModel
 
-object DIBuildModule : BuildModule() {
+object FeatureSwipeBuildModule : BuildModule() {
     override val plugins = listOf(
         library
     )
@@ -15,25 +25,32 @@ object DIBuildModule : BuildModule() {
     )
 
     override val localModules = listOf(
-        database,
-        repository,
-        featureAdd,
-        featureList,
-        featureSwipe
+        common,
+        repository
     )
 
     override val implementations = listOf(
         stdLib,
         ktx,
         appcompat,
-        koin
+        cardStackView,
+        constraint,
+        koin,
+        material,
+        navigationFragment,
+        navigationUi,
+        paging,
+        pagingKtx,
+        recyclerView,
+        viewModel
     )
 
     override val kapts = listOf<String>(
     )
 
     override val testImplementations = listOf(
-        junit
+        junit,
+        pagingTesting
     )
 
     override val androidTestImplementations = listOf(

@@ -26,7 +26,7 @@ object AppBuildModule : BuildModule() {
         di,
         featureAdd,
         featureList,
-        screenswipe
+        featureSwipe
     )
 
     override val implementations = listOf(

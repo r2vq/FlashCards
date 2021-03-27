@@ -7,7 +7,7 @@
         android:title="@string/list_cards" />
 
     <item
-        android:id="@+id/nav_screen_swipe"
+        android:id="@+id/nav_feature_swipe"
         android:enabled="true"
         android:icon="@drawable/ic_flip_to_front_blackdp"
         android:title="@string/swipe_cards" />

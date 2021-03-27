@@ -18,8 +18,8 @@
             <option value="$PROJECT_DIR$/di" />
             <option value="$PROJECT_DIR$/feature_add" />
             <option value="$PROJECT_DIR$/feature_list" />
+            <option value="$PROJECT_DIR$/feature_swipe" />
             <option value="$PROJECT_DIR$/repository" />
-            <option value="$PROJECT_DIR$/screenswipe" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
